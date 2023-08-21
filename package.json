@@ -1,0 +1,10 @@
+{
+  "name": "gummi",
+  "version": "0.0.1",
+  "description": "Typescript/WebGL game engine",
+  "main": "index.js",
+  "repository": "https://github.com/jeengland/gummi.git",
+  "author": "Jacob Cavazos-England <jacob.e.england@gmail.com>",
+  "license": "unlicensed",
+  "private": false
+}
