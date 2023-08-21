@@ -5,9 +5,20 @@
   "main": "index.js",
   "repository": "https://github.com/jeengland/gummi.git",
   "author": "Jacob Cavazos-England <jacob.e.england@gmail.com>",
-  "license": "unlicensed",
+  "license": "UNLICENSED",
   "private": false,
   "devDependencies": {
-    "typescript": "^5.1.6"
+    "gts": "^5.0.1",
+    "typescript": "~5.1.6",
+    "@types/node": "20.4.6"
+  },
+  "scripts": {
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "yarn.cmd run compile",
+    "pretest": "yarn.cmd run compile",
+    "posttest": "yarn.cmd run lint"
   }
 }
