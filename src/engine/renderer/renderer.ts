@@ -137,7 +137,10 @@ export function drawSquare() {
  * // Vertex buffer is now initialized
  */
 function createShader(): void {
-  _shader = new BaseShader('VertexShader', 'FragmentShader');
+  _shader = new BaseShader(
+    'src/shaders/vertex/simple_vs.glsl',
+    'src/shaders/fragment/white_fs.glsl'
+  );
 }
 
 /**

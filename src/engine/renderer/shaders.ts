@@ -11,7 +11,7 @@ import {Maybe} from '../types';
 
 /**
  * Loads and compiles a shader from an html script element.
- * @param {string} id - The id of the script element.
+ * @param {string} path - The path to the shader
  * @param {number} shaderType - The type of shader to load.
  * @throws {ShaderError}
  * - If the shader source cannot be found.
@@ -24,13 +24,21 @@ import {Maybe} from '../types';
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/createShader | MDN}
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/shaderSource | MDN}
  */
-function _loadShader(id: string, shaderType: number): WebGLShader {
-  // Get shader source from html
-  const shaderScript = document.getElementById(id);
-  const shaderSource: Maybe<string> = shaderScript?.firstChild?.textContent;
+function _loadShader(path: string, shaderType: number): WebGLShader {
+  // Get shader source from file server
+  const xmlReq: XMLHttpRequest = new XMLHttpRequest();
+  xmlReq.open('GET', path, false);
+
+  try {
+    xmlReq.send();
+  } catch (e) {
+    throw new ShaderError(`Could not load shader: ${path}`);
+  }
+
+  const shaderSource: Maybe<string> = xmlReq.responseText;
 
   if (!shaderSource) {
-    throw new ShaderError(`Could not find shader source: ${id}`);
+    throw new ShaderError(`Could not find shader source: ${path}`);
   }
 
   // Create shader and specify shader type
@@ -38,7 +46,7 @@ function _loadShader(id: string, shaderType: number): WebGLShader {
   const shader = gl.createShader(shaderType);
 
   if (!shader) {
-    throw new ShaderError(`Could not create shader: ${id}`);
+    throw new ShaderError(`Could not create shader: ${path}`);
   }
 
   // Specify shader source and compile shader
@@ -47,7 +55,7 @@ function _loadShader(id: string, shaderType: number): WebGLShader {
 
   if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
     throw new ShaderError(
-      `Could not compile shader ${id}: ${gl.getShaderInfoLog(shader)}`
+      `Could not compile shader ${path}: ${gl.getShaderInfoLog(shader)}`
     );
   }
 
@@ -85,8 +93,8 @@ export default class BaseShader {
    * - If the program cannot be linked.
    * - If the vertex position reference cannot be found.
    *
-   * @param {string} vId - The html id of the vertex shader.
-   * @param {string} fId - The html id of the fragment shader.
+   * @param {string} vPath - The path to the vertex shader.
+   * @param {string} fPath - The path to the fragment shader.
    */
   public constructor(vId: string, fId: string) {
     // load shaders from html
