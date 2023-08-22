@@ -22,5 +22,8 @@
     "prepare": "yarn.cmd run compile",
     "pretest": "yarn.cmd run compile",
     "posttest": "yarn.cmd run lint"
+  },
+  "dependencies": {
+    "systemjs": "^6.14.2"
   }
 }

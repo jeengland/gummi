@@ -1,10 +1,14 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
-    "module": "ES2022",
+    "module": "system",
     "lib": ["DOM", "ES2022"],
     "rootDir": ".",
-    "outDir": "build"
+    "target": "ES5",
+    "outFile": "./build/index.js",
+    "strict": true,
+    "esModuleInterop": true,
+    "inlineSources": true
   },
   "include": [
     "src/**/*.ts",
