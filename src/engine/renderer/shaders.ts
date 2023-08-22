@@ -7,7 +7,7 @@ import {getGl} from './renderer';
 import {getVertexBuffer} from './vertexBuffer';
 import {ShaderError} from '../helpers/error';
 
-import {Maybe} from '../types';
+import {Color, Maybe} from '../types';
 
 /**
  * Loads and compiles a shader from an html script element.
@@ -71,6 +71,7 @@ function _loadShader(path: string, shaderType: number): WebGLShader {
  * @property {number} _vertexPositionRef - The vertex position reference.
  * @property {WebGLShader} _vertexShader - The vertex shader.
  * @property {WebGLShader} _fragmentShader - The fragment shader.
+ * @property {WebGLUniformLocation} _pixelColorRef - The pixel color reference.
  *
  *
  * @example
@@ -83,6 +84,7 @@ export default class BaseShader {
   private _vertexPositionRef: number;
   private _vertexShader: WebGLShader;
   private _fragmentShader: WebGLShader;
+  private _pixelColorRef: WebGLUniformLocation;
 
   /**
    * Creates a shader.
@@ -92,6 +94,7 @@ export default class BaseShader {
    * - If the program cannot be created.
    * - If the program cannot be linked.
    * - If the vertex position reference cannot be found.
+   * - If the uniform location cannot be found.
    *
    * @param {string} vPath - The path to the vertex shader.
    * @param {string} fPath - The path to the fragment shader.
@@ -128,21 +131,34 @@ export default class BaseShader {
       this._compiledShader,
       'aVertexPosition'
     );
+
+    const uniformLocation = gl.getUniformLocation(
+      this._compiledShader,
+      'uPixelColor'
+    );
+
+    if (!uniformLocation) {
+      throw new ShaderError('Could not find uniform location');
+    }
+
+    this._pixelColorRef = uniformLocation;
   }
 
   /**
    * Activates the shader.
+   *
+   * @param {Color} pixelColor - The color of the pixel in RGBA format.
    *
    * @throws {ShaderError}
    * - If the vertex position reference cannot be found.
    *
    *  @example
    * const shader = new BaseShader('vertexShader', 'fragmentShader');
-   * shader.activate();
-   * // shader is now active
+   * shader.activate([0, 1, 0, 1]);
+   * // shader is now active and the pixel color is green
    * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/useProgram | MDN}
    */
-  public activate(): void {
+  public activate(pixelColor: Color): void {
     const gl = getGl();
 
     // select the previously compiled shader program
@@ -152,5 +168,6 @@ export default class BaseShader {
     gl.bindBuffer(gl.ARRAY_BUFFER, getVertexBuffer());
     gl.vertexAttribPointer(this._vertexPositionRef, 3, gl.FLOAT, false, 0, 0);
     gl.enableVertexAttribArray(this._vertexPositionRef);
+    gl.uniform4fv(this._pixelColorRef, pixelColor);
   }
 }

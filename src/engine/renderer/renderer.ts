@@ -5,6 +5,7 @@
  */
 import {RenderError} from '../helpers/error.js';
 import {isCanvasElement} from '../helpers/typeguards.js';
+import {Color} from '../types.js';
 import BaseShader from './shaders.js';
 import {initVertexBuffer} from './vertexBuffer.js';
 
@@ -59,9 +60,10 @@ export function getGl(): WebGL2RenderingContext {
 /**
  * Initializes the WebGL2 context.
  * @param {string} canvasId - The id of the canvas element.
- * @throws {RenderError} - If the canvas element cannot be found.
- * @throws {RenderError} - If the entry point is not a canvas element.
- * @throws {RenderError} - If the WebGL2 context cannot be retrieved.
+ * @throws {RenderError}
+ * - If the canvas element cannot be found.
+ * - If the entry point is not a canvas element.
+ * - If the WebGL2 context cannot be retrieved.
  * @returns {void}
  * @example
  * initWebGL('gummiCanvas');
@@ -110,20 +112,24 @@ export function clearCanvas(r: number, g: number, b: number, a: number): void {
 
 /**
  * Draws a square.
- * @throws {RenderError} - If the WebGL2 context has not been initialized.
- * @throws {RenderError} - If the shader has not been initialized.
+ *
+ * @param {Color} color - The color of the square in RGBA format.
+ *
+ * @throws {RenderError}
+ * - If the WebGL2 context has not been initialized.
+ * - If the shader has not been initialized.
  * @returns {void}
  * @example
- * drawSquare();
- * // Square is now drawn
+ * drawSquare([1, 0, 0, 1]);
+ * // A red square is now drawn
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawArrays | MDN}
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/TRIANGLE_STRIP | MDN}
  */
-export function drawSquare() {
+export function drawSquare(color: Color) {
   confirmWebGLContext();
   confirmShader();
 
-  _shader.activate();
+  _shader.activate(color);
 
   _gl.drawArrays(_gl.TRIANGLE_STRIP, 0, 4);
 }
@@ -139,7 +145,7 @@ export function drawSquare() {
 function createShader(): void {
   _shader = new BaseShader(
     'src/shaders/vertex/simple_vs.glsl',
-    'src/shaders/fragment/white_fs.glsl'
+    'src/shaders/fragment/simple_fs.glsl'
   );
 }
 
