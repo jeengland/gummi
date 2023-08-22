@@ -28,7 +28,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">default</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in src/engine/renderer/shaders.ts:73</li></ul></aside>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/8dfc117/src/engine/renderer/shaders.ts#L82">src/engine/renderer/shaders.ts:82</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -42,6 +42,7 @@
 <h3 class="tsd-index-heading">Properties</h3>
 <div class="tsd-index-list"><a href="shaders.default.html#_compiledShader" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-1024"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)"></path></g></svg><span>_compiled<wbr/>Shader</span></a>
 <a href="shaders.default.html#_fragmentShader" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_fragment<wbr/>Shader</span></a>
+<a href="shaders.default.html#_pixelColorRef" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_pixel<wbr/>Color<wbr/>Ref</span></a>
 <a href="shaders.default.html#_vertexPositionRef" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_vertex<wbr/>Position<wbr/>Ref</span></a>
 <a href="shaders.default.html#_vertexShader" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_vertex<wbr/>Shader</span></a>
 </div></section>
@@ -62,25 +63,20 @@
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">vId</span>: <span class="tsd-signature-type">string</span></h5>
-<div class="tsd-comment tsd-typography"><p>The html id of the vertex shader.</p>
-</div>
-<div class="tsd-comment tsd-typography"></div></li>
+<h5><span class="tsd-kind-parameter">vId</span>: <span class="tsd-signature-type">string</span></h5></li>
 <li>
-<h5><span class="tsd-kind-parameter">fId</span>: <span class="tsd-signature-type">string</span></h5>
-<div class="tsd-comment tsd-typography"><p>The html id of the fragment shader.</p>
-</div>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h5><span class="tsd-kind-parameter">fId</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="shaders.default.html" class="tsd-signature-type tsd-kind-class">default</a></h4>
 <div class="tsd-comment tsd-typography">
 <h4>Throws</h4><ul>
 <li>If the program cannot be created.</li>
 <li>If the program cannot be linked.</li>
 <li>If the vertex position reference cannot be found.</li>
+<li>If the uniform location cannot be found.</li>
 </ul>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in src/engine/renderer/shaders.ts:91</li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/8dfc117/src/engine/renderer/shaders.ts#L102">src/engine/renderer/shaders.ts:102</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="_compiledShader" class="tsd-anchor"></a>
@@ -90,7 +86,7 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in src/engine/renderer/shaders.ts:74</li></ul></aside></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/8dfc117/src/engine/renderer/shaders.ts#L83">src/engine/renderer/shaders.ts:83</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="_fragmentShader" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_fragment<wbr/>Shader</span><a href="#_fragmentShader" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">_fragment<wbr/>Shader</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">WebGLShader</span></div>
@@ -98,7 +94,15 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in src/engine/renderer/shaders.ts:77</li></ul></aside></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/8dfc117/src/engine/renderer/shaders.ts#L86">src/engine/renderer/shaders.ts:86</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_pixelColorRef" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_pixel<wbr/>Color<wbr/>Ref</span><a href="#_pixelColorRef" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">_pixel<wbr/>Color<wbr/>Ref</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">WebGLUniformLocation</span></div>
+<div class="tsd-comment tsd-typography"><p>The pixel color reference.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/8dfc117/src/engine/renderer/shaders.ts#L87">src/engine/renderer/shaders.ts:87</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="_vertexPositionRef" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_vertex<wbr/>Position<wbr/>Ref</span><a href="#_vertexPositionRef" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">_vertex<wbr/>Position<wbr/>Ref</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
@@ -106,7 +110,7 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in src/engine/renderer/shaders.ts:75</li></ul></aside></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/8dfc117/src/engine/renderer/shaders.ts#L84">src/engine/renderer/shaders.ts:84</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="_vertexShader" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_vertex<wbr/>Shader</span><a href="#_vertexShader" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">_vertex<wbr/>Shader</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">WebGLShader</span></div>
@@ -114,29 +118,37 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in src/engine/renderer/shaders.ts:76</li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/8dfc117/src/engine/renderer/shaders.ts#L85">src/engine/renderer/shaders.ts:85</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="activate" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>activate</span><a href="#activate" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="activate.activate-1"><span class="tsd-kind-call-signature">activate</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#activate.activate-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="activate.activate-1"><span class="tsd-kind-call-signature">activate</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">pixelColor</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#activate.activate-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Activates the shader.</p>
 </div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">pixelColor</span>: <a href="../types/engine_types.Color.html" class="tsd-signature-type tsd-kind-type-alias">Color</a></h5>
+<div class="tsd-comment tsd-typography"><p>The color of the pixel in RGBA format.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography">
 <h4>Throws</h4><ul>
 <li>If the vertex position reference cannot be found.</li>
 </ul>
 
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">shader</span><span class="hl-1"> = </span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-0">BaseShader</span><span class="hl-1">(</span><span class="hl-6">&#39;vertexShader&#39;</span><span class="hl-1">, </span><span class="hl-6">&#39;fragmentShader&#39;</span><span class="hl-1">);</span><br/><span class="hl-7">shader</span><span class="hl-1">.</span><span class="hl-0">activate</span><span class="hl-1">();</span><br/><span class="hl-3">// shader is now active</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">shader</span><span class="hl-1"> = </span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-0">BaseShader</span><span class="hl-1">(</span><span class="hl-6">&#39;vertexShader&#39;</span><span class="hl-1">, </span><span class="hl-6">&#39;fragmentShader&#39;</span><span class="hl-1">);</span><br/><span class="hl-7">shader</span><span class="hl-1">.</span><span class="hl-0">activate</span><span class="hl-1">([</span><span class="hl-2">0</span><span class="hl-1">, </span><span class="hl-2">1</span><span class="hl-1">, </span><span class="hl-2">0</span><span class="hl-1">, </span><span class="hl-2">1</span><span class="hl-1">]);</span><br/><span class="hl-3">// shader is now active and the pixel color is green</span>
 </code><button>Copy</button></pre>
 
 <h4>See</h4><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/useProgram">MDN</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in src/engine/renderer/shaders.ts:137</li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/8dfc117/src/engine/renderer/shaders.ts#L161">src/engine/renderer/shaders.ts:161</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -159,6 +171,7 @@
 <li><a href="#constructor" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-512"></use></svg><span>constructor</span></a></li>
 <li><a href="#_compiledShader" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_compiled<wbr/>Shader</span></a></li>
 <li><a href="#_fragmentShader" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_fragment<wbr/>Shader</span></a></li>
+<li><a href="#_pixelColorRef" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_pixel<wbr/>Color<wbr/>Ref</span></a></li>
 <li><a href="#_vertexPositionRef" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_vertex<wbr/>Position<wbr/>Ref</span></a></li>
 <li><a href="#_vertexShader" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_vertex<wbr/>Shader</span></a></li>
 <li><a href="#activate" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>activate</span></a></li></ul></div></details></div>
