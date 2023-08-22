@@ -10,9 +10,11 @@
   "devDependencies": {
     "@types/node": "20.4.6",
     "gts": "^5.0.1",
+    "typedoc": "^0.24.8",
     "typescript": "~5.1.6"
   },
   "scripts": {
+    "docgen": "typedoc",
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
