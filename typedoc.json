@@ -1,6 +1,12 @@
 {
     "entryPoints": ["./src"],
     "entryPointStrategy": "expand",
+    "visibilityFilters": {
+        "protected": true,
+        "private": true,
+        "inherited": true,
+        "external": true
+    },
     "exclude": ["./src/index.ts"],
     "out": "./docs",
 }
