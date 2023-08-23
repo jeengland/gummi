@@ -1,23 +1,11 @@
 <html>
     <head>
         <title>Output</title>
-        <script src="./node_modules/systemjs/dist/s.js"></script>
-        <script src="./node_modules/systemjs/dist/extras/named-register.js"></script>
-        <script async type="module" src="build/index.js"></script>
+        <script async type="module" src="build/bundle.js"></script>
     </head>
     <main>
         <canvas id="gummiCanvas" width="640" height="480">
             Your browser does not support the HTML5 canvas tag.
         </canvas>
-        <script>
-            System.addImportMap({
-                imports: {
-                    'systemjs/app': './build/index.js'
-                }
-            })
-            System.import('./build/index.js')
-                .then(() => System.import('systemjs/app'))
-                .catch(console.error.bind(console))
-        </script>
     </main>
 </html>

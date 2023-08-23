@@ -8,6 +8,7 @@ import {getVertexBuffer} from '../../internal/vertexBuffer';
 import {ShaderError} from '../../helpers/error';
 
 import {Color, Maybe} from '../../types';
+import {mat4} from 'gl-matrix';
 
 /**
  * Loads and compiles a shader from an html script element.
@@ -85,6 +86,7 @@ export default class BaseShader {
   private _vertexShader: WebGLShader;
   private _fragmentShader: WebGLShader;
   private _pixelColorRef: WebGLUniformLocation;
+  private _modelMatrixRef: WebGLUniformLocation;
 
   /**
    * Creates a shader.
@@ -94,7 +96,8 @@ export default class BaseShader {
    * - If the program cannot be created.
    * - If the program cannot be linked.
    * - If the vertex position reference cannot be found.
-   * - If the uniform location cannot be found.
+   * - If the uniform location for the pixel color cannot be found.
+   * - If the uniform location for the model matrix cannot be found.
    *
    * @param {string} vPath - The path to the vertex shader.
    * @param {string} fPath - The path to the fragment shader.
@@ -138,16 +141,32 @@ export default class BaseShader {
     );
 
     if (!uniformLocation) {
-      throw new ShaderError('Could not find uniform location');
+      throw new ShaderError('Could not find uniform location for pixelColor');
     }
 
     this._pixelColorRef = uniformLocation;
+
+    const matrixRef = gl.getUniformLocation(
+      this._compiledShader,
+      'modelXformMatrix'
+    );
+
+    if (!matrixRef) {
+      throw new ShaderError(
+        'Could not find uniform location for modelXformMatrix'
+      );
+    }
+
+    this._modelMatrixRef = matrixRef;
   }
 
   /**
    * Activates the shader.
    *
    * @param {Color} pixelColor - The color of the pixel in RGBA format.
+   * @param {mat4} trsMatrix
+   * - The transformation matrix for the object.
+   * - trs stands for translate, rotate, scale.
    *
    * @throws {ShaderError}
    * - If the vertex position reference cannot be found.
@@ -158,7 +177,7 @@ export default class BaseShader {
    * // shader is now active and the pixel color is green
    * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/useProgram | MDN}
    */
-  public activate(pixelColor: Color): void {
+  public activate(pixelColor: Color, trsMatrix: mat4): void {
     const gl = getGl();
 
     // select the previously compiled shader program
@@ -169,5 +188,6 @@ export default class BaseShader {
     gl.vertexAttribPointer(this._vertexPositionRef, 3, gl.FLOAT, false, 0, 0);
     gl.enableVertexAttribArray(this._vertexPositionRef);
     gl.uniform4fv(this._pixelColorRef, pixelColor);
+    gl.uniformMatrix4fv(this._modelMatrixRef, false, trsMatrix);
   }
 }

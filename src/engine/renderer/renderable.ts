@@ -3,6 +3,7 @@
  * @module renderable
  */
 
+import {mat4} from 'gl-matrix';
 import {getGl} from '../internal/gl';
 import {getConstColorShader} from '../internal/shaderResources';
 import {Color} from '../types';
@@ -33,14 +34,17 @@ export default class Renderable {
 
   /**
    * Draws the renderable object.
+   * @param {mat4} trsMatrix
+   * - The TRS matrix to use when drawing.
+   * - TRS stands for translate, rotate, scale.
    * @returns {void}
    * @example
    * renderable.draw();
    * // renderable is now drawn using the current shader and color
    */
-  draw(): void {
+  draw(trsMatrix: mat4): void {
     const gl = getGl();
-    this._shader.activate(this._color);
+    this._shader.activate(this._color, trsMatrix);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   }
 

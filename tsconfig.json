@@ -1,18 +1,18 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
-    "module": "system",
+    "module": "ES6",
     "lib": ["DOM", "ES2022"],
+    "moduleResolution": "Node",
     "rootDir": ".",
     "target": "ES5",
     "outDir": "./build",
-    "outFile": "./build/index.js",
     "strict": true,
     "esModuleInterop": true,
     "inlineSources": true
   },
   "include": [
-    "src//client/**/*.ts",
+    "src/**/*.ts",
     "test/**/*.ts"
   ]
 }
