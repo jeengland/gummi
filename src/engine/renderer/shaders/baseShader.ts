@@ -129,12 +129,12 @@ export default class BaseShader {
 
     this._vertexPositionRef = gl.getAttribLocation(
       this._compiledShader,
-      'aVertexPosition'
+      'vertexPosition'
     );
 
     const uniformLocation = gl.getUniformLocation(
       this._compiledShader,
-      'uPixelColor'
+      'pixelColor'
     );
 
     if (!uniformLocation) {
