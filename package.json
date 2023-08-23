@@ -10,9 +10,9 @@
   "devDependencies": {
     "@types/node": "20.4.6",
     "gts": "^5.0.1",
+    "husky": "^8.0.0",
     "typedoc": "^0.24.8",
-    "typescript": "~5.1.6",
-    "husky": "^8.0.0"
+    "typescript": "~5.1.6"
   },
   "scripts": {
     "docgen": "typedoc",
@@ -25,6 +25,7 @@
     "posttest": "yarn.cmd run lint"
   },
   "dependencies": {
+    "gl-matrix": "^3.4.3",
     "systemjs": "^6.14.2"
   }
 }
