@@ -35,3 +35,14 @@ export class ShaderError extends Error {
     this.name = 'ShaderError';
   }
 }
+
+/**
+ * Error for issues with shader resources
+ * @extends {Error}
+ * */
+export class ShaderResourceError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'ShaderResourceError';
+  }
+}

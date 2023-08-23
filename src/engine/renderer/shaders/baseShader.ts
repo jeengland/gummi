@@ -3,11 +3,11 @@
  * @module shaders
  */
 
-import {getGl} from './renderer';
-import {getVertexBuffer} from './vertexBuffer';
-import {ShaderError} from '../helpers/error';
+import {getGl} from '../../internal/gl';
+import {getVertexBuffer} from '../../internal/vertexBuffer';
+import {ShaderError} from '../../helpers/error';
 
-import {Color, Maybe} from '../types';
+import {Color, Maybe} from '../../types';
 
 /**
  * Loads and compiles a shader from an html script element.

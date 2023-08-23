@@ -3,15 +3,31 @@
     @module vertexBuffer
 */
 
-import {getGl} from './renderer';
+import {getGl} from '../internal/gl';
 import {VertexBufferError} from '../helpers/error';
 
 let vertexBuffer: WebGLBuffer;
 
+// 2D square vertices
+// X, Y, Z
+// using prettier-ignore to keep the array formatted more readably
+// prettier-ignore
 const mVerticesOfSquare = [
-  0.5, 0.5, 0.0, -0.5, 0.5, 0.0, 0.5, -0.5, 0.0, -0.5, -0.5, 0.0,
+  0.5, 0.5, 0.0,
+  -0.5, 0.5, 0.0,
+  0.5, -0.5, 0.0,
+  -0.5, -0.5, 0.0,
 ];
 
+/**
+ * Confirms that the vertex buffer has been initialized.
+ * @throws {VertexBufferError} - If the vertex buffer has not been initialized.
+ * @returns {void}
+ * @example
+ * confirmVertexBuffer();
+ * // throws error if vertex buffer has not been initialized
+ * // otherwise, vertex buffer is confirmed to be available
+ */
 function confirmVertexBuffer(): void {
   if (!vertexBuffer) {
     throw new VertexBufferError('Vertex buffer not initialized');
