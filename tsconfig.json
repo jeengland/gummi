@@ -5,6 +5,7 @@
     "lib": ["DOM", "ES2022"],
     "rootDir": ".",
     "target": "ES5",
+    "outDir": "./build",
     "outFile": "./build/index.js",
     "strict": true,
     "esModuleInterop": true,
