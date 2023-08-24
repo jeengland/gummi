@@ -73,6 +73,8 @@ function _loadShader(path: string, shaderType: number): WebGLShader {
  * @property {WebGLShader} _vertexShader - The vertex shader.
  * @property {WebGLShader} _fragmentShader - The fragment shader.
  * @property {WebGLUniformLocation} _pixelColorRef - The pixel color reference.
+ * @property {WebGLUniformLocation} _modelMatrixRef - The model matrix reference.
+ * @property {WebGLUniformLocation} _viewMatrixRef - The view matrix reference.
  *
  *
  * @example
@@ -87,6 +89,7 @@ export default class BaseShader {
   private _fragmentShader: WebGLShader;
   private _pixelColorRef: WebGLUniformLocation;
   private _modelMatrixRef: WebGLUniformLocation;
+  private _viewMatrixRef: WebGLUniformLocation;
 
   /**
    * Creates a shader.
@@ -98,6 +101,7 @@ export default class BaseShader {
    * - If the vertex position reference cannot be found.
    * - If the uniform location for the pixel color cannot be found.
    * - If the uniform location for the model matrix cannot be found.
+   * - If the uniform location for the view matrix cannot be found.
    *
    * @param {string} vPath - The path to the vertex shader.
    * @param {string} fPath - The path to the fragment shader.
@@ -135,29 +139,42 @@ export default class BaseShader {
       'vertexPosition'
     );
 
-    const uniformLocation = gl.getUniformLocation(
+    const colorLocation = gl.getUniformLocation(
       this._compiledShader,
       'pixelColor'
     );
 
-    if (!uniformLocation) {
+    if (!colorLocation) {
       throw new ShaderError('Could not find uniform location for pixelColor');
     }
 
-    this._pixelColorRef = uniformLocation;
+    this._pixelColorRef = colorLocation;
 
-    const matrixRef = gl.getUniformLocation(
+    const modelMatrixLocation = gl.getUniformLocation(
       this._compiledShader,
       'modelXformMatrix'
     );
 
-    if (!matrixRef) {
+    if (!modelMatrixLocation) {
       throw new ShaderError(
         'Could not find uniform location for modelXformMatrix'
       );
     }
 
-    this._modelMatrixRef = matrixRef;
+    this._modelMatrixRef = modelMatrixLocation;
+
+    const viewMatrixLocation = gl.getUniformLocation(
+      this._compiledShader,
+      'viewXformMatrix'
+    );
+
+    if (!viewMatrixLocation) {
+      throw new ShaderError(
+        'Could not find uniform location for viewXformMatrix'
+      );
+    }
+
+    this._viewMatrixRef = viewMatrixLocation;
   }
 
   /**
@@ -167,6 +184,7 @@ export default class BaseShader {
    * @param {mat4} trsMatrix
    * - The transformation matrix for the object.
    * - trs stands for translate, rotate, scale.
+   * @param {mat4} viewMatrix - The view matrix.
    *
    * @throws {ShaderError}
    * - If the vertex position reference cannot be found.
@@ -177,7 +195,7 @@ export default class BaseShader {
    * // shader is now active and the pixel color is green
    * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/useProgram | MDN}
    */
-  public activate(pixelColor: Color, trsMatrix: mat4): void {
+  public activate(pixelColor: Color, trsMatrix: mat4, viewMatrix: mat4): void {
     const gl = getGl();
 
     // select the previously compiled shader program
@@ -189,5 +207,6 @@ export default class BaseShader {
     gl.enableVertexAttribArray(this._vertexPositionRef);
     gl.uniform4fv(this._pixelColorRef, pixelColor);
     gl.uniformMatrix4fv(this._modelMatrixRef, false, trsMatrix);
+    gl.uniformMatrix4fv(this._viewMatrixRef, false, viewMatrix);
   }
 }

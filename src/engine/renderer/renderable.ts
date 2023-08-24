@@ -2,12 +2,12 @@
  * Module to handle the drawing process.
  * @module renderable
  */
-
 import {mat4} from 'gl-matrix';
 import {getGl} from '../internal/gl';
 import {getConstColorShader} from '../internal/shaderResources';
 import {Color} from '../types';
 import BaseShader from './shaders/baseShader';
+import Transform from './transform';
 
 /**
  * A renderable object.
@@ -15,10 +15,12 @@ import BaseShader from './shaders/baseShader';
  * @memberof module:renderable
  * @property {BaseShader} _shader - The shader to use when drawing.
  * @property {Color} _color - The color of the renderable object in RGBA format.
+ * @property {Transform} xform - The transformation of the renderable object.
  */
 export default class Renderable {
   private _shader: BaseShader;
   private _color: Color;
+  private _xform: Transform;
 
   /**
    * Creates a renderable object.
@@ -30,21 +32,25 @@ export default class Renderable {
   constructor() {
     this._shader = getConstColorShader();
     this._color = [1, 1, 1, 1];
+    this._xform = new Transform();
   }
 
   /**
    * Draws the renderable object.
-   * @param {mat4} trsMatrix
-   * - The TRS matrix to use when drawing.
-   * - TRS stands for translate, rotate, scale.
+   * @param {mat4} cameraMatrix - The camera matrix.
+   *
    * @returns {void}
    * @example
    * renderable.draw();
    * // renderable is now drawn using the current shader and color
    */
-  draw(trsMatrix: mat4): void {
+  draw(cameraMatrix: mat4): void {
     const gl = getGl();
-    this._shader.activate(this._color, trsMatrix);
+    this._shader.activate(
+      this._color,
+      this._xform.getTRSMatrix(),
+      cameraMatrix
+    );
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   }
 
@@ -69,5 +75,16 @@ export default class Renderable {
    */
   getColor(): Color {
     return this._color;
+  }
+
+  /**
+   * Gets the transformation of the renderable object.
+   * @returns {Transform} - The transformation of the renderable object.
+   * @example
+   * const transform = renderable.getTransform();
+   * // transform is now available
+   */
+  getXform(): Transform {
+    return this._xform;
   }
 }

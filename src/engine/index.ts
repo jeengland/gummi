@@ -45,6 +45,7 @@ function clearCanvas(color: Color) {
 
 // imports to be exported from this file
 import Renderable from './renderer/renderable';
+import Transform from './renderer/transform';
 
 // export public API
 export {
@@ -53,4 +54,5 @@ export {
   clearCanvas,
   // classes
   Renderable,
+  Transform,
 };

@@ -15,14 +15,14 @@
     "typedoc": "^0.24.8",
     "typescript": "~5.1.6",
     "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-cli": "^5.1.4"
   },
   "scripts": {
     "docgen": "typedoc",
     "lint": "gts lint",
     "clean": "gts clean",
-    "compile": "tsc",
+    "compile": "yarn webpack --mode=production",
+    "dev": "yarn webpack --mode=development --watch",
     "fix": "gts fix",
     "prepare": "yarn.cmd run compile && husky install",
     "pretest": "yarn.cmd run compile",
