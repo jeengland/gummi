@@ -11,7 +11,7 @@ import Camera from './camera';
 
 /**
  * A renderable object.
- * @class
+ * @class Renderable
  * @memberof module:renderable
  * @property {BaseShader} _shader - The shader to use when drawing.
  * @property {Color} _color - The color of the renderable object in RGBA format.

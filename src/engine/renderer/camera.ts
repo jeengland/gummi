@@ -8,7 +8,7 @@ import {getGl} from '../internal/gl';
 
 /**
  * Camera class to handle viewport and camera matrix.
- * @class
+ * @class Camera
  * @memberof module:camera
  * @property {vec2} _wcCenter - The center of the camera in world coordinates.
  * @property {number} _wcWidth - The width of the camera in world coordinates.

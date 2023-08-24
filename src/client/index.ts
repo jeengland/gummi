@@ -1,6 +1,7 @@
 import {vec2} from 'gl-matrix';
-import {init, clearCanvas, Renderable, Camera} from '../engine/index';
+import {Camera, clearCanvas, init, input, Renderable} from '../engine/index';
 import {startLoop} from '../engine/internal/loop';
+import {Key} from '../engine/types';
 
 class Client {
   private _whiteSq: Renderable | null;
@@ -44,20 +45,40 @@ class Client {
     const whiteXform = this._whiteSq!.getXform();
     const deltaX = 0.05;
 
-    if (whiteXform.getPositionX() > 30) {
-      whiteXform.setPosition(10, 60);
+    if (input.isKeyDown(Key.Right)) {
+      if (whiteXform.getPositionX() > 30) {
+        whiteXform.setPosition(10, 60);
+      }
+      whiteXform.incrementPositionX(deltaX);
+      whiteXform.incrementRotationDegrees(1);
     }
 
-    whiteXform.incrementPositionX(deltaX);
-    whiteXform.incrementRotationDegrees(1);
+    if (input.isKeyDown(Key.Left)) {
+      if (whiteXform.getPositionX() < 10) {
+        whiteXform.setPosition(30, 60);
+      }
+
+      whiteXform.incrementPositionX(-deltaX);
+      whiteXform.incrementRotationDegrees(-1);
+    }
 
     const redXform = this._redSq!.getXform();
 
-    if (redXform.getWidth() > 5) {
-      redXform.setSize(2, 2);
+    if (input.isKeyDown(Key.Up)) {
+      if (redXform.getWidth() > 5) {
+        redXform.setSize(2, 2);
+      }
+
+      redXform.incrementSize(0.05);
     }
 
-    redXform.incrementSize(0.05);
+    if (input.isKeyDown(Key.Down)) {
+      if (redXform.getWidth() < 2) {
+        redXform.setSize(5, 5);
+      }
+
+      redXform.incrementSize(-0.05);
+    }
   }
 }
 

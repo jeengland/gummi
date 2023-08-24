@@ -10,6 +10,7 @@ import {getGl, initWebGL} from './internal/gl';
 import {initVertexBuffer} from './internal/vertexBuffer';
 import {initShader} from './internal/shaderResources';
 import {Color} from './types';
+import {initInput} from './user/input';
 
 // engine utils
 
@@ -25,6 +26,7 @@ function init(htmlId: string) {
   initWebGL(htmlId);
   initVertexBuffer();
   initShader();
+  initInput();
 }
 
 /**
@@ -43,10 +45,13 @@ function clearCanvas(color: Color) {
   gl.clear(gl.COLOR_BUFFER_BIT);
 }
 
-// imports to be exported from this file
+// import classes to be exported from this file
 import Renderable from './renderer/renderable';
 import Transform from './renderer/transform';
 import Camera from './renderer/camera';
+
+// import modules to be exported from this file
+import * as input from './user/input';
 
 // export public API
 export {
@@ -57,4 +62,6 @@ export {
   Renderable,
   Transform,
   Camera,
+  // modules
+  input,
 };

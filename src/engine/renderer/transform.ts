@@ -7,7 +7,7 @@ import {mat4, vec2, vec3} from 'gl-matrix';
 
 /**
  * A matrix transformation.
- * @class
+ * @class Transform
  * @memberof module:renderer
  * @property {vec2} _position - The position of the object.
  * @property {vec2} _scale - The scale of the object.
