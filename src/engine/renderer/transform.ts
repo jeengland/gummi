@@ -79,6 +79,36 @@ export default class Transform {
   }
 
   /**
+   * Increments the x position of the object.
+   * @param {number} increment - The amount to increment the x position of the object.
+   * @returns {void}
+   * @example
+   * // assume transform position is (0, 0)
+   * transform.incrementPositionX(0.5);
+   * // transform is now positioned at (0.5, 0)
+   * transform.incrementPositionX(0.5);
+   * // transform is now positioned at (1, 0)
+   */
+  incrementPositionX(increment: number): void {
+    this._position[0] += increment;
+  }
+
+  /**
+   * Increments the y position of the object.
+   * @param {number} increment - The amount to increment the y position of the object.
+   * @returns {void}
+   * @example
+   * // assume transform position is (0, 0)
+   * transform.incrementPositionY(0.5);
+   * // transform is now positioned at (0, 0.5)
+   * transform.incrementPositionY(0.5);
+   * // transform is now positioned at (0, 1)
+   */
+  incrementPositionY(increment: number): void {
+    this._position[1] += increment;
+  }
+
+  /**
    * Gets the position of the object.
    * @returns {vec2} - The position of the object.
    * @example
@@ -182,6 +212,52 @@ export default class Transform {
   }
 
   /**
+   * Increments the width of the object.
+   * @param {number} increment - The amount to increment the width of the object.
+   * @returns {void}
+   * @example
+   * // assume transform scale is 1x1
+   * transform.incrementWidth(0.5);
+   * // transform is now scaled to 1.5x1
+   * transform.incrementWidth(0.5);
+   * // transform is now scaled to 2x1
+   */
+  incrementSizeX(increment: number): void {
+    this._scale[0] += increment;
+  }
+
+  /**
+   * Increments the height of the object.
+   * @param {number} increment - The amount to increment the height of the object.
+   * @returns {void}
+   * @example
+   * // assume transform scale is 1x1
+   * transform.incrementHeight(0.5);
+   * // transform is now scaled to 1x1.5
+   * transform.incrementHeight(0.5);
+   * // transform is now scaled to 1x2
+   */
+  incrementSizeY(increment: number): void {
+    this._scale[1] += increment;
+  }
+
+  /**
+   * Increments both the width and height of the object.
+   * @param {number} increment - The amount to increment the width and height of the object.
+   * @returns {void}
+   * @example
+   * // assume transform scale is 1x1
+   * transform.incrementSize(0.5);
+   * // transform is now scaled to 1.5x1.5
+   * transform.incrementSize(0.5);
+   * // transform is now scaled to 2x2
+   */
+  incrementSize(increment: number): void {
+    this._scale[0] += increment;
+    this._scale[1] += increment;
+  }
+
+  /**
    * Sets the rotation of the object.
    * @param {number} degrees - The rotation of the object in degrees.
    * @returns {void}
@@ -205,6 +281,21 @@ export default class Transform {
   }
 
   /**
+   * Increments the rotation of the object in degrees.
+   * @param {number} increment - The amount to increment the rotation of the object in degrees.
+   * @returns {void}
+   * @example
+   * // assume transform rotation is 0 radians
+   * transform.incrementRotationDegrees(45);
+   * // transform is now rotated .785398 radians
+   * transform.incrementRotationDegrees(45);
+   * // transform is now rotated 1.5708 radians
+   */
+  incrementRotationDegrees(increment: number): void {
+    this._rotation += (increment * Math.PI) / 180;
+  }
+
+  /**
    * Sets the rotation of the object in radians.
    * @param {number} radians - The rotation of the object in radians.
    * @returns {void}
@@ -225,6 +316,21 @@ export default class Transform {
    */
   getRotationRadians(): number {
     return this._rotation;
+  }
+
+  /**
+   * Increments the rotation of the object in radians.
+   * @param {number} increment - The amount to increment the rotation of the object in radians.
+   * @returns {void}
+   * @example
+   * // assume transform rotation is 0 radians
+   * transform.incrementRotationRadians(0.6);
+   * // transform is now rotated 0.6 radians
+   * transform.incrementRotationRadians(0.6);
+   * // transform is now rotated 1.2 radians
+   */
+  incrementRotationRadians(increment: number): void {
+    this._rotation += increment;
   }
 
   /**

@@ -1,3 +1,7 @@
+/**
+ * Module for WebGL2 context functionality.
+ * @module gl
+ */
 import {RenderError} from '../helpers/error';
 
 let _canvas: HTMLCanvasElement;
