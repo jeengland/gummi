@@ -1,7 +1,14 @@
 import {vec2} from 'gl-matrix';
 import {Camera, clearCanvas, init, input, Renderable} from '../engine/index';
 import {startLoop} from '../engine/internal/loop';
-import {Key} from '../engine/types';
+import {Color, Key} from '../engine/types';
+
+function getRandomColor(): Color {
+  const r = Math.random();
+  const g = Math.random();
+  const b = Math.random();
+  return [r, g, b, 1];
+}
 
 class Client {
   private _whiteSq: Renderable | null;
@@ -78,6 +85,18 @@ class Client {
       }
 
       redXform.incrementSize(-0.05);
+    }
+
+    if (input.isKeyPressed(Key.A)) {
+      this._whiteSq!.setColor(getRandomColor());
+    }
+
+    if (input.isKeyPressed(Key.S)) {
+      this._redSq!.setColor(getRandomColor());
+    }
+
+    if (input.isKeyPressed(Key.D)) {
+      this._camera!.setBackgroundColor(getRandomColor());
     }
   }
 }
