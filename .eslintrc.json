@@ -1,3 +1,14 @@
 {
-  "extends": "./node_modules/gts/"
+  "extends": "./node_modules/gts/",
+  "rules": {
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns":[{
+          "group":  ["../engine/internal"],
+          "message": "Using internal engine code is not supported."
+        }]
+      }
+    ]
+  }
 }
