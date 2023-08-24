@@ -24,4 +24,44 @@ export type Maybe<T> = T | null | undefined;
  * const blue: Color = [0, 0, 1, 1];
  * const purple: Color = [1, 0, 1, 1];
  */
-export type Color = [number, number, number, number];
+export type Color = [red: number, green: number, blue: number, alpha: number];
+
+/**
+ * An enum representing the color channels.
+ * @typedef {number} ColorChannel
+ * @example
+ */
+export enum ColorChannel {
+  Red = 0,
+  Green = 1,
+  Blue = 2,
+  Alpha = 3,
+}
+
+/**
+ * Array of 4 numbers representing a viewport.
+ * - [x, y, width, height]
+ * - x and y represent origin of viewport
+ * @typedef {Array<number>} ViewportArray
+ * @example
+ * const viewport: viewportArray = [0, 0, 800, 600];
+ * // viewport is now an array representing a viewport with origin
+ * // in the bottom left and size 800x600
+ */
+export type ViewportArray = [
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+];
+
+/**
+ * An enum representing the viewport array.
+ * @typedef {number} Viewport
+ */
+export enum Viewport {
+  X = 0,
+  Y = 1,
+  Width = 2,
+  Height = 3,
+}

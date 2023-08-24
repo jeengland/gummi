@@ -2,12 +2,12 @@
  * Module to handle the drawing process.
  * @module renderable
  */
-import {mat4} from 'gl-matrix';
 import {getGl} from '../internal/gl';
 import {getConstColorShader} from '../internal/shaderResources';
 import {Color} from '../types';
 import BaseShader from './shaders/baseShader';
 import Transform from './transform';
+import Camera from './camera';
 
 /**
  * A renderable object.
@@ -37,19 +37,19 @@ export default class Renderable {
 
   /**
    * Draws the renderable object.
-   * @param {mat4} cameraMatrix - The camera matrix.
+   * @param {Camera} camera - The camera to draw the renderable object for
    *
    * @returns {void}
    * @example
    * renderable.draw();
    * // renderable is now drawn using the current shader and color
    */
-  draw(cameraMatrix: mat4): void {
+  draw(camera: Camera): void {
     const gl = getGl();
     this._shader.activate(
       this._color,
       this._xform.getTRSMatrix(),
-      cameraMatrix
+      camera.getCameraMatrix()
     );
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   }

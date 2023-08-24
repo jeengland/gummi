@@ -1,0 +1,396 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>default | gummi</title><meta name="description" content="Documentation for gummi"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/search.js" id="tsd-search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base="..">
+<div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<div class="field">
+<div id="tsd-toolbar-links"></div></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="../index.html" class="title">gummi</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-content">
+<div class="tsd-page-title">
+<ul class="tsd-breadcrumb">
+<li><a href="../index.html">gummi</a></li>
+<li><a href="../modules/camera.html">camera</a></li>
+<li><a href="camera.default.html">default</a></li></ul>
+<h1>Class default</h1></div>
+<section class="tsd-panel tsd-comment">
+<div class="tsd-comment tsd-typography"><p>Camera class to handle viewport and camera matrix.</p>
+</div>
+<div class="tsd-comment tsd-typography">
+<h4>Memberof</h4><p>module:camera</p>
+
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">camera</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">Camera</span><span class="hl-1">([</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">], </span><span class="hl-4">10</span><span class="hl-1">, [</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">800</span><span class="hl-1">, </span><span class="hl-4">600</span><span class="hl-1">]);</span><br/><span class="hl-5">// camera is now available</span><br/><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">setBackgroundColor</span><span class="hl-1">([</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">1</span><span class="hl-1">]);</span><br/><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">setViewAndCameraMatrix</span><span class="hl-1">();</span><br/><span class="hl-5">// camera is now set to the viewport and background color</span><br/><span class="hl-5">// and the camera matrix is set</span><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">cameraMatrix</span><span class="hl-1"> = </span><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">getCameraMatrix</span><span class="hl-1">();</span><br/><span class="hl-5">// cameraMatrix is now available</span><br/><span class="hl-5">// cameraMatrix can be used to draw objects</span><br/><span class="hl-5">// the camera matrix is used to draw objects in world coordinates</span>
+</code><button>Copy</button></pre>
+</div></section>
+<section class="tsd-panel tsd-hierarchy">
+<h4>Hierarchy</h4>
+<ul class="tsd-hierarchy">
+<li><span class="target">default</span></li></ul></section><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L30">src/engine/renderer/camera.ts:30</a></li></ul></aside>
+<section class="tsd-panel-group tsd-index-group">
+<section class="tsd-panel tsd-index-panel">
+<details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
+<h5 class="tsd-index-heading uppercase" role="button" aria-expanded="false" tabIndex=0><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 5.50969L8 11.6609L14.5 5.50969L12.5466 3.66086L8 7.96494L3.45341 3.66086L1.5 5.50969Z" fill="var(--color-text)"></path></svg> Index</h5></summary>
+<div class="tsd-accordion-details">
+<section class="tsd-index-section">
+<h3 class="tsd-index-heading">Constructors</h3>
+<div class="tsd-index-list"><a href="camera.default.html#constructor" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-512"><rect fill="var(--color-icon-background)" stroke="#4D7FFF" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)"></path></g></svg><span>constructor</span></a>
+</div></section>
+<section class="tsd-index-section">
+<h3 class="tsd-index-heading">Properties</h3>
+<div class="tsd-index-list"><a href="camera.default.html#_backgroundColor" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-1024"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)"></path></g></svg><span>_background<wbr/>Color</span></a>
+<a href="camera.default.html#_cameraMatrix" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_camera<wbr/>Matrix</span></a>
+<a href="camera.default.html#_viewport" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_viewport</span></a>
+<a href="camera.default.html#_wcCenter" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_wc<wbr/>Center</span></a>
+<a href="camera.default.html#_wcWidth" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_wc<wbr/>Width</span></a>
+</div></section>
+<section class="tsd-index-section">
+<h3 class="tsd-index-heading">Methods</h3>
+<div class="tsd-index-list"><a href="camera.default.html#getBackgroundColor" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-2048"><rect fill="var(--color-icon-background)" stroke="#FF4DB8" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.162 16V7.24H10.578L11.514 10.072C11.602 10.328 11.674 10.584 11.73 10.84C11.794 11.088 11.842 11.28 11.874 11.416C11.906 11.28 11.954 11.088 12.018 10.84C12.082 10.584 12.154 10.324 12.234 10.06L13.122 7.24H14.538V16H13.482V12.82C13.482 12.468 13.49 12.068 13.506 11.62C13.53 11.172 13.558 10.716 13.59 10.252C13.622 9.78 13.654 9.332 13.686 8.908C13.726 8.476 13.762 8.1 13.794 7.78L12.366 12.16H11.334L9.894 7.78C9.934 8.092 9.97 8.456 10.002 8.872C10.042 9.28 10.078 9.716 10.11 10.18C10.142 10.636 10.166 11.092 10.182 11.548C10.206 12.004 10.218 12.428 10.218 12.82V16H9.162Z" fill="var(--color-text)"></path></g></svg><span>get<wbr/>Background<wbr/>Color</span></a>
+<a href="camera.default.html#getCameraMatrix" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Camera<wbr/>Matrix</span></a>
+<a href="camera.default.html#getViewport" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Viewport</span></a>
+<a href="camera.default.html#getWCCenter" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>getWCCenter</span></a>
+<a href="camera.default.html#getWCHeight" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>getWCHeight</span></a>
+<a href="camera.default.html#getWCWidth" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>getWCWidth</span></a>
+<a href="camera.default.html#setBackgroundColor" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>set<wbr/>Background<wbr/>Color</span></a>
+<a href="camera.default.html#setViewAndCameraMatrix" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>set<wbr/>View<wbr/>And<wbr/>Camera<wbr/>Matrix</span></a>
+<a href="camera.default.html#setViewport" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>set<wbr/>Viewport</span></a>
+<a href="camera.default.html#setWCCenter" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>setWCCenter</span></a>
+<a href="camera.default.html#setWCWidth" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>setWCWidth</span></a>
+</div></section></div></details></section></section>
+<section class="tsd-panel-group tsd-member-group">
+<h2>Constructors</h2>
+<section class="tsd-panel tsd-member"><a id="constructor" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>constructor</span><a href="#constructor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><g stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" id="icon-anchor"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></g></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="constructor.new_default"><span class="tsd-kind-constructor-signature">new default</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">wcCenter</span>, <span class="tsd-kind-parameter">wcWidth</span>, <span class="tsd-kind-parameter">viewportArray</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="camera.default.html" class="tsd-signature-type tsd-kind-class">default</a><a href="#constructor.new_default" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Creates a camera.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">wcCenter</span>: <span class="tsd-signature-type ">vec2</span></h5>
+<div class="tsd-comment tsd-typography"><p>The center of the camera in world coordinates.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li>
+<li>
+<h5><span class="tsd-kind-parameter">wcWidth</span>: <span class="tsd-signature-type">number</span></h5>
+<div class="tsd-comment tsd-typography"><p>The width of the camera in world coordinates.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li>
+<li>
+<h5><span class="tsd-kind-parameter">viewportArray</span>: <a href="../types/types.ViewportArray.html" class="tsd-signature-type tsd-kind-type-alias">ViewportArray</a></h5>
+<div class="tsd-comment tsd-typography"><p>The viewport array.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="camera.default.html" class="tsd-signature-type tsd-kind-class">default</a></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">camera</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">Camera</span><span class="hl-1">([</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">], </span><span class="hl-4">10</span><span class="hl-1">, [</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">800</span><span class="hl-1">, </span><span class="hl-4">600</span><span class="hl-1">]);</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L46">src/engine/renderer/camera.ts:46</a></li></ul></aside></li></ul></section></section>
+<section class="tsd-panel-group tsd-member-group">
+<h2>Properties</h2>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_backgroundColor" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_background<wbr/>Color</span><a href="#_backgroundColor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">_background<wbr/>Color</span><span class="tsd-signature-symbol">:</span> <a href="../types/types.Color.html" class="tsd-signature-type tsd-kind-type-alias">Color</a></div>
+<div class="tsd-comment tsd-typography"><p>The background color of the camera in RGBA format.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L35">src/engine/renderer/camera.ts:35</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_cameraMatrix" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_camera<wbr/>Matrix</span><a href="#_cameraMatrix" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">_camera<wbr/>Matrix</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">mat4</span></div>
+<div class="tsd-comment tsd-typography"><p>The camera matrix.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L34">src/engine/renderer/camera.ts:34</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_viewport" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_viewport</span><a href="#_viewport" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">_viewport</span><span class="tsd-signature-symbol">:</span> <a href="../types/types.ViewportArray.html" class="tsd-signature-type tsd-kind-type-alias">ViewportArray</a></div>
+<div class="tsd-comment tsd-typography"><p>The viewport array.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L33">src/engine/renderer/camera.ts:33</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_wcCenter" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_wc<wbr/>Center</span><a href="#_wcCenter" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">_wc<wbr/>Center</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">vec2</span></div>
+<div class="tsd-comment tsd-typography"><p>The center of the camera in world coordinates.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L31">src/engine/renderer/camera.ts:31</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_wcWidth" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_wc<wbr/>Width</span><a href="#_wcWidth" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">_wc<wbr/>Width</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+<div class="tsd-comment tsd-typography"><p>The width of the camera in world coordinates.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L32">src/engine/renderer/camera.ts:32</a></li></ul></aside></section></section>
+<section class="tsd-panel-group tsd-member-group">
+<h2>Methods</h2>
+<section class="tsd-panel tsd-member"><a id="getBackgroundColor" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Background<wbr/>Color</span><a href="#getBackgroundColor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="getBackgroundColor.getBackgroundColor-1"><span class="tsd-kind-call-signature">get<wbr/>Background<wbr/>Color</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../types/types.Color.html" class="tsd-signature-type tsd-kind-type-alias">Color</a><a href="#getBackgroundColor.getBackgroundColor-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Gets the background color of the camera.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <a href="../types/types.Color.html" class="tsd-signature-type tsd-kind-type-alias">Color</a></h4><p>The background color of the camera in RGBA format.</p>
+
+<div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">camera</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">Camera</span><span class="hl-1">([</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">], </span><span class="hl-4">10</span><span class="hl-1">, [</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">800</span><span class="hl-1">, </span><span class="hl-4">600</span><span class="hl-1">]);</span><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">backgroundColor</span><span class="hl-1"> = </span><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">getBackgroundColor</span><span class="hl-1">();</span><br/><span class="hl-5">// backgroundColor is now [0, 0, 0, 1]</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L165">src/engine/renderer/camera.ts:165</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="getCameraMatrix" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Camera<wbr/>Matrix</span><a href="#getCameraMatrix" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="getCameraMatrix.getCameraMatrix-1"><span class="tsd-kind-call-signature">get<wbr/>Camera<wbr/>Matrix</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">mat4</span><a href="#getCameraMatrix.getCameraMatrix-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Gets the camera matrix.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">mat4</span></h4><p>The camera matrix.</p>
+
+<div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">camera</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">Camera</span><span class="hl-1">([</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">], </span><span class="hl-4">10</span><span class="hl-1">, [</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">800</span><span class="hl-1">, </span><span class="hl-4">600</span><span class="hl-1">]);</span><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">cameraMatrix</span><span class="hl-1"> = </span><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">getCameraMatrix</span><span class="hl-1">();</span><br/><span class="hl-5">// cameraMatrix is now available</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L229">src/engine/renderer/camera.ts:229</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="getViewport" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Viewport</span><a href="#getViewport" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="getViewport.getViewport-1"><span class="tsd-kind-call-signature">get<wbr/>Viewport</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../types/types.ViewportArray.html" class="tsd-signature-type tsd-kind-type-alias">ViewportArray</a><a href="#getViewport.getViewport-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Gets the viewport array.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <a href="../types/types.ViewportArray.html" class="tsd-signature-type tsd-kind-type-alias">ViewportArray</a></h4><p>The viewport array.</p>
+
+<div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">camera</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">Camera</span><span class="hl-1">([</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">], </span><span class="hl-4">10</span><span class="hl-1">, [</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">800</span><span class="hl-1">, </span><span class="hl-4">600</span><span class="hl-1">]);</span><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">viewport</span><span class="hl-1"> = </span><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">getViewport</span><span class="hl-1">();</span><br/><span class="hl-5">// viewport is now [0, 0, 800, 600]</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L141">src/engine/renderer/camera.ts:141</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="getWCCenter" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>getWCCenter</span><a href="#getWCCenter" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="getWCCenter.getWCCenter-1"><span class="tsd-kind-call-signature">getWCCenter</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">vec2</span><a href="#getWCCenter.getWCCenter-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Gets the center of the camera in world coordinates.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">vec2</span></h4><p>The center of the camera in world coordinates.</p>
+
+<div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">camera</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">Camera</span><span class="hl-1">([</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">], </span><span class="hl-4">10</span><span class="hl-1">, [</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">800</span><span class="hl-1">, </span><span class="hl-4">600</span><span class="hl-1">]);</span><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">wcCenter</span><span class="hl-1"> = </span><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">getWCCenter</span><span class="hl-1">();</span><br/><span class="hl-5">// wcCenter is now [0, 0]</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L92">src/engine/renderer/camera.ts:92</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="getWCHeight" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>getWCHeight</span><a href="#getWCHeight" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="getWCHeight.getWCHeight-1"><span class="tsd-kind-call-signature">getWCHeight</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><a href="#getWCHeight.getWCHeight-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Gets the height of the camera in world coordinates based on the viewport.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><p>The height of the camera in world coordinates.</p>
+
+<div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">camera</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">Camera</span><span class="hl-1">([</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">], </span><span class="hl-4">10</span><span class="hl-1">, [</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">800</span><span class="hl-1">, </span><span class="hl-4">600</span><span class="hl-1">]);</span><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">wcHeight</span><span class="hl-1"> = </span><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">getWCHeight</span><span class="hl-1">();</span><br/><span class="hl-5">// wcHeight is calculated as 7.5 based on the viewport</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L64">src/engine/renderer/camera.ts:64</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="getWCWidth" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>getWCWidth</span><a href="#getWCWidth" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="getWCWidth.getWCWidth-1"><span class="tsd-kind-call-signature">getWCWidth</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><a href="#getWCWidth.getWCWidth-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Gets the width of the camera in world coordinates.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><p>The width of the camera in world coordinates.</p>
+
+<div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">camera</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">Camera</span><span class="hl-1">([</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">], </span><span class="hl-4">10</span><span class="hl-1">, [</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">800</span><span class="hl-1">, </span><span class="hl-4">600</span><span class="hl-1">]);</span><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">wcWidth</span><span class="hl-1"> = </span><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">getWCWidth</span><span class="hl-1">();</span><br/><span class="hl-5">// wcWidth is now 10</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L116">src/engine/renderer/camera.ts:116</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="setBackgroundColor" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>set<wbr/>Background<wbr/>Color</span><a href="#setBackgroundColor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="setBackgroundColor.setBackgroundColor-1"><span class="tsd-kind-call-signature">set<wbr/>Background<wbr/>Color</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">color</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#setBackgroundColor.setBackgroundColor-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Sets the background color of the camera.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">color</span>: <a href="../types/types.Color.html" class="tsd-signature-type tsd-kind-type-alias">Color</a></h5>
+<div class="tsd-comment tsd-typography"><p>The background color of the camera in RGBA format.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">setBackgroundColor</span><span class="hl-1">([</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">1</span><span class="hl-1">]);</span><br/><span class="hl-5">// camera background color is now black</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L153">src/engine/renderer/camera.ts:153</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="setViewAndCameraMatrix" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>set<wbr/>View<wbr/>And<wbr/>Camera<wbr/>Matrix</span><a href="#setViewAndCameraMatrix" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="setViewAndCameraMatrix.setViewAndCameraMatrix-1"><span class="tsd-kind-call-signature">set<wbr/>View<wbr/>And<wbr/>Camera<wbr/>Matrix</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#setViewAndCameraMatrix.setViewAndCameraMatrix-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Sets the viewport and camera matrix.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">setViewAndCameraMatrix</span><span class="hl-1">();</span><br/><span class="hl-5">// camera viewport is now set to [0, 0, 800, 600]</span><br/><span class="hl-5">// camera background color is now black</span><br/><span class="hl-5">// camera matrix is now set</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L178">src/engine/renderer/camera.ts:178</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="setViewport" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>set<wbr/>Viewport</span><a href="#setViewport" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="setViewport.setViewport-1"><span class="tsd-kind-call-signature">set<wbr/>Viewport</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">viewportArray</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#setViewport.setViewport-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Sets the viewport array.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">viewportArray</span>: <a href="../types/types.ViewportArray.html" class="tsd-signature-type tsd-kind-type-alias">ViewportArray</a></h5>
+<div class="tsd-comment tsd-typography"><p>The viewport array.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">setViewport</span><span class="hl-1">([</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">800</span><span class="hl-1">, </span><span class="hl-4">600</span><span class="hl-1">]);</span><br/><span class="hl-5">// camera viewport is now set to [0, 0, 800, 600]</span><br/><span class="hl-5">// the viewport array is used to set the viewport and camera matrix</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L129">src/engine/renderer/camera.ts:129</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="setWCCenter" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>setWCCenter</span><a href="#setWCCenter" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="setWCCenter.setWCCenter-1"><span class="tsd-kind-call-signature">setWCCenter</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">posX</span>, <span class="tsd-kind-parameter">posY</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#setWCCenter.setWCCenter-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Sets the center of the camera in world coordinates.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">posX</span>: <span class="tsd-signature-type">number</span></h5>
+<div class="tsd-comment tsd-typography"><p>The x position of the camera in world coordinates.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li>
+<li>
+<h5><span class="tsd-kind-parameter">posY</span>: <span class="tsd-signature-type">number</span></h5>
+<div class="tsd-comment tsd-typography"><p>The y position of the camera in world coordinates.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">setWCCenter</span><span class="hl-1">(</span><span class="hl-4">0</span><span class="hl-1">, </span><span class="hl-4">0</span><span class="hl-1">);</span><br/><span class="hl-5">// camera is now centered at (0, 0)</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L80">src/engine/renderer/camera.ts:80</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="setWCWidth" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>setWCWidth</span><a href="#setWCWidth" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="setWCWidth.setWCWidth-1"><span class="tsd-kind-call-signature">setWCWidth</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">width</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#setWCWidth.setWCWidth-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Sets the width of the camera in world coordinates.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">width</span>: <span class="tsd-signature-type">number</span></h5>
+<div class="tsd-comment tsd-typography"><p>The width of the camera in world coordinates.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-6">camera</span><span class="hl-1">.</span><span class="hl-3">setWCWidth</span><span class="hl-1">(</span><span class="hl-4">10</span><span class="hl-1">);</span><br/><span class="hl-5">// camera width is set to 10 world coordinates</span>
+</code><button>Copy</button></pre>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/camera.ts#L104">src/engine/renderer/camera.ts:104</a></li></ul></aside></li></ul></section></section></div>
+<div class="col-sidebar">
+<div class="page-menu">
+<div class="tsd-navigation settings">
+<details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)" id="icon-chevronDown"></path></svg>Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility">
+<h4 class="uppercase">Member Visibility</h4><form>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></form></div>
+<div class="tsd-theme-toggle">
+<h4 class="uppercase">Theme</h4><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<details open class="tsd-index-accordion tsd-page-navigation"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#icon-chevronDown"></use></svg>On This Page</h3></summary>
+<div class="tsd-accordion-details">
+<ul>
+<li><a href="#constructor" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-512"></use></svg><span>constructor</span></a></li>
+<li><a href="#_backgroundColor" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_background<wbr/>Color</span></a></li>
+<li><a href="#_cameraMatrix" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_camera<wbr/>Matrix</span></a></li>
+<li><a href="#_viewport" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_viewport</span></a></li>
+<li><a href="#_wcCenter" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_wc<wbr/>Center</span></a></li>
+<li><a href="#_wcWidth" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>_wc<wbr/>Width</span></a></li>
+<li><a href="#getBackgroundColor" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Background<wbr/>Color</span></a></li>
+<li><a href="#getCameraMatrix" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Camera<wbr/>Matrix</span></a></li>
+<li><a href="#getViewport" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Viewport</span></a></li>
+<li><a href="#getWCCenter" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>getWCCenter</span></a></li>
+<li><a href="#getWCHeight" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>getWCHeight</span></a></li>
+<li><a href="#getWCWidth" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>getWCWidth</span></a></li>
+<li><a href="#setBackgroundColor" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>set<wbr/>Background<wbr/>Color</span></a></li>
+<li><a href="#setViewAndCameraMatrix" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>set<wbr/>View<wbr/>And<wbr/>Camera<wbr/>Matrix</span></a></li>
+<li><a href="#setViewport" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>set<wbr/>Viewport</span></a></li>
+<li><a href="#setWCCenter" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>setWCCenter</span></a></li>
+<li><a href="#setWCWidth" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>setWCWidth</span></a></li></ul></div></details></div>
+<div class="site-menu">
+<nav class="tsd-navigation"><a href="../index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>gummi</span></a>
+<ul class="tsd-small-nested-navigation">
+<li>
+<details class="tsd-index-accordion" open data-key="camera"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#icon-chevronDown"></use></svg><a href="../modules/camera.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>camera</span></a></summary>
+<div class="tsd-accordion-details">
+<ul class="tsd-nested-navigation">
+<li><a href="camera.default.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-128"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)"></path></g></svg><span>default</span></a></li></ul></div></details></li>
+<li><a href="../modules/engine.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>engine</span></a></li>
+<li><a href="../modules/errors.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>errors</span></a></li>
+<li><a href="../modules/internal_gl.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>internal/gl</span></a></li>
+<li><a href="../modules/renderable.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>renderable</span></a></li>
+<li><a href="../modules/renderer.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>renderer</span></a></li>
+<li><a href="../modules/shaderResources.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>shader<wbr/>Resources</span></a></li>
+<li><a href="../modules/shaders.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>shaders</span></a></li>
+<li><a href="../modules/typeguards.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>typeguards</span></a></li>
+<li><a href="../modules/types.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>types</span></a></li>
+<li><a href="../modules/vertexBuffer.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>vertex<wbr/>Buffer</span></a></li></ul></nav></div></div></div>
+<div class="tsd-generator">
+<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
+<div class="overlay"></div></body></html>

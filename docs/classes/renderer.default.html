@@ -22,7 +22,7 @@
 <div class="tsd-comment tsd-typography">
 <h4>Memberof</h4><p>module:renderer</p>
 
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">transform</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">Transform</span><span class="hl-1">();</span><br/><span class="hl-3">// transform is now available</span><br/><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">setPosition</span><span class="hl-1">(</span><span class="hl-2">0.5</span><span class="hl-1">, </span><span class="hl-2">0.5</span><span class="hl-1">);</span><br/><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">setRotationDegrees</span><span class="hl-1">(</span><span class="hl-2">45</span><span class="hl-1">);</span><br/><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">setSize</span><span class="hl-1">(</span><span class="hl-2">0.5</span><span class="hl-1">, </span><span class="hl-2">0.5</span><span class="hl-1">);</span><br/><span class="hl-3">// transform is now positioned at (0.5, 0.5), rotated 45 degrees, and scaled to 0.5x0.5</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">trsMatrix</span><span class="hl-1"> = </span><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">getTRSMatrix</span><span class="hl-1">();</span><br/><span class="hl-3">// trsMatrix returns a matrix that represents the transformation.</span><br/><span class="hl-3">// This matrix can be used to draw the object.</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">transform</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">Transform</span><span class="hl-1">();</span><br/><span class="hl-5">// transform is now available</span><br/><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">setPosition</span><span class="hl-1">(</span><span class="hl-4">0.5</span><span class="hl-1">, </span><span class="hl-4">0.5</span><span class="hl-1">);</span><br/><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">setRotationDegrees</span><span class="hl-1">(</span><span class="hl-4">45</span><span class="hl-1">);</span><br/><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">setSize</span><span class="hl-1">(</span><span class="hl-4">0.5</span><span class="hl-1">, </span><span class="hl-4">0.5</span><span class="hl-1">);</span><br/><span class="hl-5">// transform is now positioned at (0.5, 0.5), rotated 45 degrees, and scaled to 0.5x0.5</span><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">trsMatrix</span><span class="hl-1"> = </span><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">getTRSMatrix</span><span class="hl-1">();</span><br/><span class="hl-5">// trsMatrix returns a matrix that represents the transformation.</span><br/><span class="hl-5">// This matrix can be used to draw the object.</span>
 </code><button>Copy</button></pre>
 </div></section>
 <section class="tsd-panel tsd-hierarchy">
@@ -30,7 +30,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">default</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L26">src/engine/renderer/transform.ts:26</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L26">src/engine/renderer/transform.ts:26</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -77,11 +77,11 @@
 </div>
 <h4 class="tsd-returns-title">Returns <a href="renderer.default.html" class="tsd-signature-type tsd-kind-class">default</a></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">transform</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">Transform</span><span class="hl-1">();</span><br/><span class="hl-3">// transform is now available</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">transform</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">Transform</span><span class="hl-1">();</span><br/><span class="hl-5">// transform is now available</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L38">src/engine/renderer/transform.ts:38</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L38">src/engine/renderer/transform.ts:38</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="_position" class="tsd-anchor"></a>
@@ -91,7 +91,7 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L27">src/engine/renderer/transform.ts:27</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L27">src/engine/renderer/transform.ts:27</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="_rotation" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_rotation</span><a href="#_rotation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">_rotation</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
@@ -99,7 +99,7 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L29">src/engine/renderer/transform.ts:29</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L29">src/engine/renderer/transform.ts:29</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="_scale" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_scale</span><a href="#_scale" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">_scale</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">vec2</span></div>
@@ -107,7 +107,7 @@
 </div>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L28">src/engine/renderer/transform.ts:28</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L28">src/engine/renderer/transform.ts:28</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="getHeight" class="tsd-anchor"></a>
@@ -122,11 +122,11 @@
 </ul>
 
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">height</span><span class="hl-1"> = </span><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">getHeight</span><span class="hl-1">();</span><br/><span class="hl-3">// returns 1 if transform is scaled to 0.5x1</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">height</span><span class="hl-1"> = </span><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">getHeight</span><span class="hl-1">();</span><br/><span class="hl-5">// returns 1 if transform is scaled to 0.5x1</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L180">src/engine/renderer/transform.ts:180</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L180">src/engine/renderer/transform.ts:180</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getPosition" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Position</span><a href="#getPosition" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -139,11 +139,11 @@
 </ul>
 
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">position</span><span class="hl-1"> = </span><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">getPosition</span><span class="hl-1">();</span><br/><span class="hl-3">// returns [0.5, 0.5] if transform is positioned at (0.5, 0.5)</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">position</span><span class="hl-1"> = </span><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">getPosition</span><span class="hl-1">();</span><br/><span class="hl-5">// returns [0.5, 0.5] if transform is positioned at (0.5, 0.5)</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L88">src/engine/renderer/transform.ts:88</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L88">src/engine/renderer/transform.ts:88</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getPositionX" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>PositionX</span><a href="#getPositionX" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -156,11 +156,11 @@
 </ul>
 
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">posX</span><span class="hl-1"> = </span><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">getPositionX</span><span class="hl-1">();</span><br/><span class="hl-3">// returns 0.5 if transform is positioned at (0.5, 1)</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">posX</span><span class="hl-1"> = </span><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">getPositionX</span><span class="hl-1">();</span><br/><span class="hl-5">// returns 0.5 if transform is positioned at (0.5, 1)</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L99">src/engine/renderer/transform.ts:99</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L99">src/engine/renderer/transform.ts:99</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getPositionY" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>PositionY</span><a href="#getPositionY" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -173,11 +173,11 @@
 </ul>
 
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">posY</span><span class="hl-1"> = </span><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">getPositionY</span><span class="hl-1">();</span><br/><span class="hl-3">// returns 1 if transform is positioned at (0.5, 1)</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">posY</span><span class="hl-1"> = </span><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">getPositionY</span><span class="hl-1">();</span><br/><span class="hl-5">// returns 1 if transform is positioned at (0.5, 1)</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L110">src/engine/renderer/transform.ts:110</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L110">src/engine/renderer/transform.ts:110</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getRotationDegrees" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Rotation<wbr/>Degrees</span><a href="#getRotationDegrees" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -190,11 +190,11 @@
 </ul>
 
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">degrees</span><span class="hl-1"> = </span><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">getRotationDegrees</span><span class="hl-1">();</span><br/><span class="hl-3">// returns 28.6479 if transform is rotated .5 radians</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">degrees</span><span class="hl-1"> = </span><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">getRotationDegrees</span><span class="hl-1">();</span><br/><span class="hl-5">// returns 28.6479 if transform is rotated .5 radians</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L203">src/engine/renderer/transform.ts:203</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L203">src/engine/renderer/transform.ts:203</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getRotationRadians" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Rotation<wbr/>Radians</span><a href="#getRotationRadians" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -207,11 +207,11 @@
 </ul>
 
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">radians</span><span class="hl-1"> = </span><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">getRotationRadians</span><span class="hl-1">();</span><br/><span class="hl-3">// returns 0.6 if transform is rotated 0.6 radians</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">radians</span><span class="hl-1"> = </span><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">getRotationRadians</span><span class="hl-1">();</span><br/><span class="hl-5">// returns 0.6 if transform is rotated 0.6 radians</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L226">src/engine/renderer/transform.ts:226</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L226">src/engine/renderer/transform.ts:226</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getSize" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Size</span><a href="#getSize" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -224,11 +224,11 @@
 </ul>
 
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">size</span><span class="hl-1"> = </span><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">getSize</span><span class="hl-1">();</span><br/><span class="hl-3">// returns [0.5, 0.5] if transform is scaled to 0.5x0.5</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">size</span><span class="hl-1"> = </span><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">getSize</span><span class="hl-1">();</span><br/><span class="hl-5">// returns [0.5, 0.5] if transform is scaled to 0.5x0.5</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L158">src/engine/renderer/transform.ts:158</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L158">src/engine/renderer/transform.ts:158</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getTRSMatrix" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>getTRSMatrix</span><a href="#getTRSMatrix" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -241,11 +241,11 @@
 </ul>
 
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">trsMatrix</span><span class="hl-1"> = </span><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">getTRSMatrix</span><span class="hl-1">();</span><br/><span class="hl-3">// returns a matrix that represents the transformation</span><br/><span class="hl-3">// this matrix can be used to draw the object</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">trsMatrix</span><span class="hl-1"> = </span><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">getTRSMatrix</span><span class="hl-1">();</span><br/><span class="hl-5">// returns a matrix that represents the transformation</span><br/><span class="hl-5">// this matrix can be used to draw the object</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L238">src/engine/renderer/transform.ts:238</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L238">src/engine/renderer/transform.ts:238</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getWidth" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Width</span><a href="#getWidth" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -258,11 +258,11 @@
 </ul>
 
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">width</span><span class="hl-1"> = </span><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">getWidth</span><span class="hl-1">();</span><br/><span class="hl-3">// returns 0.5 if transform is scaled to 0.5x1</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">width</span><span class="hl-1"> = </span><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">getWidth</span><span class="hl-1">();</span><br/><span class="hl-5">// returns 0.5 if transform is scaled to 0.5x1</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L169">src/engine/renderer/transform.ts:169</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L169">src/engine/renderer/transform.ts:169</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="setHeight" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>set<wbr/>Height</span><a href="#setHeight" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -280,11 +280,11 @@
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">setHeight</span><span class="hl-1">(</span><span class="hl-2">0.5</span><span class="hl-1">);</span><br/><span class="hl-3">// transform is now scaled to 1x0.5</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">setHeight</span><span class="hl-1">(</span><span class="hl-4">0.5</span><span class="hl-1">);</span><br/><span class="hl-5">// transform is now scaled to 1x0.5</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L147">src/engine/renderer/transform.ts:147</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L147">src/engine/renderer/transform.ts:147</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="setPosition" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>set<wbr/>Position</span><a href="#setPosition" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -307,11 +307,11 @@
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">setPosition</span><span class="hl-1">(</span><span class="hl-2">0.5</span><span class="hl-1">, </span><span class="hl-2">0.5</span><span class="hl-1">);</span><br/><span class="hl-3">// transform is now positioned at (0.5, 0.5)</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">setPosition</span><span class="hl-1">(</span><span class="hl-4">0.5</span><span class="hl-1">, </span><span class="hl-4">0.5</span><span class="hl-1">);</span><br/><span class="hl-5">// transform is now positioned at (0.5, 0.5)</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L53">src/engine/renderer/transform.ts:53</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L53">src/engine/renderer/transform.ts:53</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="setPositionX" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>set<wbr/>PositionX</span><a href="#setPositionX" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -329,11 +329,11 @@
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">setPositionX</span><span class="hl-1">(</span><span class="hl-2">0.5</span><span class="hl-1">);</span><br/><span class="hl-3">// transform is now positioned at (0.5, 1)</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">setPositionX</span><span class="hl-1">(</span><span class="hl-4">0.5</span><span class="hl-1">);</span><br/><span class="hl-5">// transform is now positioned at (0.5, 1)</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L65">src/engine/renderer/transform.ts:65</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L65">src/engine/renderer/transform.ts:65</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="setPositionY" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>set<wbr/>PositionY</span><a href="#setPositionY" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -351,11 +351,11 @@
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">setPositionY</span><span class="hl-1">(</span><span class="hl-2">0.5</span><span class="hl-1">);</span><br/><span class="hl-3">// transform is now positioned at (0.5, 1)</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">setPositionY</span><span class="hl-1">(</span><span class="hl-4">0.5</span><span class="hl-1">);</span><br/><span class="hl-5">// transform is now positioned at (0.5, 1)</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L77">src/engine/renderer/transform.ts:77</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L77">src/engine/renderer/transform.ts:77</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="setRotationDegrees" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>set<wbr/>Rotation<wbr/>Degrees</span><a href="#setRotationDegrees" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -373,11 +373,11 @@
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">setRotationDegrees</span><span class="hl-1">(</span><span class="hl-2">45</span><span class="hl-1">);</span><br/><span class="hl-3">// transform is now set to .785398 radians</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">setRotationDegrees</span><span class="hl-1">(</span><span class="hl-4">45</span><span class="hl-1">);</span><br/><span class="hl-5">// transform is now set to .785398 radians</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L192">src/engine/renderer/transform.ts:192</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L192">src/engine/renderer/transform.ts:192</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="setRotationRadians" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>set<wbr/>Rotation<wbr/>Radians</span><a href="#setRotationRadians" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -395,11 +395,11 @@
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">setRotationRadians</span><span class="hl-1">(</span><span class="hl-2">0.6</span><span class="hl-1">);</span><br/><span class="hl-3">// transform is now set to 0.6 radians</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">setRotationRadians</span><span class="hl-1">(</span><span class="hl-4">0.6</span><span class="hl-1">);</span><br/><span class="hl-5">// transform is now set to 0.6 radians</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L215">src/engine/renderer/transform.ts:215</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L215">src/engine/renderer/transform.ts:215</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="setSize" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>set<wbr/>Size</span><a href="#setSize" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -422,11 +422,11 @@
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">setSize</span><span class="hl-1">(</span><span class="hl-2">0.5</span><span class="hl-1">, </span><span class="hl-2">0.5</span><span class="hl-1">);</span><br/><span class="hl-3">// transform is now scaled to 0.5x0.5</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">setSize</span><span class="hl-1">(</span><span class="hl-4">0.5</span><span class="hl-1">, </span><span class="hl-4">0.5</span><span class="hl-1">);</span><br/><span class="hl-5">// transform is now scaled to 0.5x0.5</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L123">src/engine/renderer/transform.ts:123</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L123">src/engine/renderer/transform.ts:123</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="setWidth" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>set<wbr/>Width</span><a href="#setWidth" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -444,11 +444,11 @@
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-7">transform</span><span class="hl-1">.</span><span class="hl-0">setWidth</span><span class="hl-1">(</span><span class="hl-2">0.5</span><span class="hl-1">);</span><br/><span class="hl-3">// transform is now scaled to 0.5x1</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-6">transform</span><span class="hl-1">.</span><span class="hl-3">setWidth</span><span class="hl-1">(</span><span class="hl-4">0.5</span><span class="hl-1">);</span><br/><span class="hl-5">// transform is now scaled to 0.5x1</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/jeengland/gummi/blob/425e02d/src/engine/renderer/transform.ts#L135">src/engine/renderer/transform.ts:135</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/jeengland/gummi/blob/40a564b/src/engine/renderer/transform.ts#L135">src/engine/renderer/transform.ts:135</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -492,6 +492,7 @@
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="../index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>gummi</span></a>
 <ul class="tsd-small-nested-navigation">
+<li><a href="../modules/camera.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>camera</span></a></li>
 <li><a href="../modules/engine.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>engine</span></a></li>
 <li><a href="../modules/errors.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>errors</span></a></li>
 <li><a href="../modules/internal_gl.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>internal/gl</span></a></li>
