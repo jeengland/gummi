@@ -53,6 +53,7 @@ import Camera from './renderer/camera';
 // import modules to be exported from this file
 import * as input from './user/input';
 import * as text from './renderer/resources/text';
+import * as xml from './renderer/resources/xml';
 
 // export public API
 export {
@@ -66,4 +67,5 @@ export {
   // modules
   input,
   text,
+  xml,
 };

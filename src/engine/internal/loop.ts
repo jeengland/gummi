@@ -41,6 +41,8 @@ type Scene = {
   init: () => void;
   update: () => void;
   draw: () => void;
+  load: () => void;
+  unload: () => void;
 };
 
 // Internal variables
@@ -126,11 +128,12 @@ export async function startLoop(scene: Scene) {
     throw new LoopError('Scene already running');
   }
 
+  _scene = scene;
+  _scene.load();
+
   await waitOnRequests();
 
-  _scene = scene;
   _scene.init();
-
   _previousTime = performance.now();
   _lagTime = 0.0;
   _running = true;
