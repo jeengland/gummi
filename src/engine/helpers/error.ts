@@ -62,3 +62,15 @@ export class LoopError extends Error {
     this.name = 'LoopError';
   }
 }
+
+/**
+ * Error for issues with resource loading
+ * Errors of this type originate from the resourceMap module
+ * @extends {Error}
+ * */
+export class ResourceError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'ResourceError';
+  }
+}

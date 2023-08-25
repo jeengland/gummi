@@ -4,7 +4,9 @@
  */
 
 import {ShaderResourceError} from '../helpers/error';
+import {loadText} from '../renderer/resources/text';
 import BaseShader from '../renderer/shaders/baseShader';
+import {pushRequest} from './resourceMap';
 
 /**
  * Path to the vertex shader.
@@ -57,14 +59,24 @@ function createShaders(): void {
 }
 
 /**
- * Initializes the shader resources.
+ * Initializes the shader resources by loading the shader source files.
  * @returns {void}
  * @example
  * init();
  * // shader resources are now available
  */
 export function initShader(): void {
-  createShaders();
+  const loadPromise = new Promise<void>(resolve => {
+    Promise.all([loadText(SIMPLE_FS_PATH), loadText(SIMPLE_VS_PATH)])
+      .then(() => {
+        resolve();
+      })
+      .then(() => {
+        createShaders();
+      });
+  });
+
+  pushRequest(loadPromise);
 }
 
 /**

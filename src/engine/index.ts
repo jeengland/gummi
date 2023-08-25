@@ -52,6 +52,7 @@ import Camera from './renderer/camera';
 
 // import modules to be exported from this file
 import * as input from './user/input';
+import * as text from './renderer/resources/text';
 
 // export public API
 export {
@@ -64,4 +65,5 @@ export {
   Camera,
   // modules
   input,
+  text,
 };

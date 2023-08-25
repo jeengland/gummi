@@ -7,8 +7,9 @@ import {getGl} from '../../internal/gl';
 import {getVertexBuffer} from '../../internal/vertexBuffer';
 import {ShaderError} from '../../helpers/error';
 
-import {Color, Maybe} from '../../types';
+import {Color} from '../../types';
 import {mat4} from 'gl-matrix';
+import {getText} from '../resources/text';
 
 /**
  * Loads and compiles a shader from an html script element.
@@ -25,22 +26,15 @@ import {mat4} from 'gl-matrix';
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/createShader | MDN}
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/shaderSource | MDN}
  */
-function _loadShader(path: string, shaderType: number): WebGLShader {
+function _compileShader(path: string, shaderType: number): WebGLShader {
   // Get shader source from file server
-  const xmlReq: XMLHttpRequest = new XMLHttpRequest();
-  xmlReq.open('GET', path, false);
+  const source = getText(path);
 
-  try {
-    xmlReq.send();
-  } catch (e) {
-    throw new ShaderError(`Could not load shader: ${path}`);
-  }
-
-  const shaderSource: Maybe<string> = xmlReq.responseText;
-
-  if (!shaderSource) {
+  if (!source) {
     throw new ShaderError(`Could not find shader source: ${path}`);
   }
+
+  const shaderSource = source;
 
   // Create shader and specify shader type
   const gl = getGl();
@@ -110,8 +104,8 @@ export default class BaseShader {
     // load shaders from html
     const gl = getGl();
 
-    this._vertexShader = _loadShader(vId, gl.VERTEX_SHADER);
-    this._fragmentShader = _loadShader(fId, gl.FRAGMENT_SHADER);
+    this._vertexShader = _compileShader(vId, gl.VERTEX_SHADER);
+    this._fragmentShader = _compileShader(fId, gl.FRAGMENT_SHADER);
 
     // Create program and attach shaders
     const program = gl.createProgram();

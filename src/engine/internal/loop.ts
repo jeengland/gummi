@@ -4,6 +4,7 @@
  */
 import {LoopError} from '../helpers/error';
 import {updateInput} from '../user/input';
+import {waitOnRequests} from './resourceMap';
 
 // Constants
 /**
@@ -120,10 +121,12 @@ function loopStep() {
  * // game loop is now running
  * // scene is updated and drawn 60 times per second
  */
-export function startLoop(scene: Scene) {
+export async function startLoop(scene: Scene) {
   if (_running) {
     throw new LoopError('Scene already running');
   }
+
+  await waitOnRequests();
 
   _scene = scene;
   _scene.init();
