@@ -113,3 +113,15 @@ export function isKeyDown(keyCode: number): boolean {
 export function isKeyPressed(keyCode: number): boolean {
   return _isKeyPressed[keyCode];
 }
+
+/**
+ * Cleans up the input module by removing the event listeners.
+ * @returns {void}
+ * @example
+ * cleanupInput();
+ * // event listeners are now removed
+ */
+export function cleanupInput() {
+  window.removeEventListener('keydown', _onKeyDown);
+  window.removeEventListener('keyup', _onKeyUp);
+}

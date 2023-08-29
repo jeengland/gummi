@@ -74,3 +74,15 @@ export class ResourceError extends Error {
     this.name = 'ResourceError';
   }
 }
+
+/**
+ * Error for issues with scene management
+ * Errors of this type originate from the scene module
+ * @extends {Error}
+ */
+export class SceneError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'SceneError';
+  }
+}

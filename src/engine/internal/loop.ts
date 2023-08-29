@@ -3,6 +3,7 @@
  * @module loop
  */
 import {LoopError} from '../helpers/error';
+import Scene from '../renderer/scene';
 import {updateInput} from '../user/input';
 import {waitOnRequests} from './resourceMap';
 
@@ -37,13 +38,6 @@ const MILLISECONDS_PER_UPDATE = 1000 / UPDATES_PER_SECOND;
  * @property {function} update - The function to update the scene.
  * @property {function} draw - The function to draw the scene.
  */
-type Scene = {
-  init: () => void;
-  update: () => void;
-  draw: () => void;
-  load: () => void;
-  unload: () => void;
-};
 
 // Internal variables
 /**
@@ -51,7 +45,7 @@ type Scene = {
  * @type {Scene}
  * @private
  * */
-let _scene: Scene;
+let _scene: Scene | null;
 /**
  * The id of the current frame.
  * @type {number}
@@ -142,17 +136,32 @@ export async function startLoop(scene: Scene) {
 
 /**
  * Stops the game loop.
- * @throws {LoopError} - If the scene is not running.
  * @returns {void}
  * @example
  * stopLoop();
  * // game loop is now stopped
  */
 export function stopLoop() {
-  if (!_running) {
-    throw new LoopError('Scene not running');
-  }
-
   _running = false;
   cancelAnimationFrame(_frameId);
+}
+
+/**
+ * Cleans up the game loop.
+ * @throws {LoopError} - If the scene has not been initialized.
+ * @returns {void}
+ * @example
+ * cleanupLoop();
+ * // game loop is now stopped
+ * // scene is unloaded
+ * // scene is now null
+ */
+export function cleanupLoop() {
+  if (!_scene) {
+    throw new LoopError('Scene not initialized');
+  }
+
+  stopLoop();
+  _scene.unload();
+  _scene = null;
 }

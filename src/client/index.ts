@@ -1,103 +1,99 @@
+import {vec2} from 'gl-matrix';
 import {
   Camera,
   clearCanvas,
   init,
   input,
   Renderable,
-  xml,
+  Scene,
 } from '../engine/index';
-import {startLoop} from '../engine/internal/loop';
-import {Color, Key} from '../engine/types';
-import SceneFileParser from './util/sceneParser';
+import {Key} from '../engine/types';
+import NextLevel from './scenes/nextLevel';
 
-function getRandomColor(): Color {
-  const r = Math.random();
-  const g = Math.random();
-  const b = Math.random();
-  return [r, g, b, 1];
-}
+// function getRandomColor(): Color {
+//   const r = Math.random();
+//   const g = Math.random();
+//   const b = Math.random();
+//   return [r, g, b, 1];
+// }
 
-class Client {
-  private _sceneFile: string;
-  private _squares: Renderable[] | null;
+export class Client extends Scene {
   private _camera: Camera | null;
+  private _hero: Renderable | null;
+  private _support: Renderable | null;
 
   constructor() {
-    this._sceneFile = '/src/client/assets/scene.xml';
-    this._squares = null;
+    super();
+
     this._camera = null;
+    this._hero = null;
+    this._support = null;
   }
 
   // using the following function to emulate how scene class will eventually work
   // using engine internals for now but this is not ideal
   init() {
-    const xmlFile = xml.getXml(this._sceneFile);
+    this._camera = new Camera(vec2.fromValues(20, 60), 20, [20, 40, 600, 300]);
+    this._camera.setBackgroundColor([0.8, 0.8, 0.8, 1]);
 
-    if (!xmlFile) {
-      throw new Error('Could not load scene file');
-    }
+    this._support = new Renderable();
+    this._support.setColor([0.8, 0.2, 0.2, 1]);
+    this._support.getXform().setPosition(20, 60);
+    this._support.getXform().setSize(5, 5);
 
-    const parser = new SceneFileParser(xmlFile);
-
-    this._camera = parser.parseCamera();
-    this._squares = parser.parseRenderables();
+    this._hero = new Renderable();
+    this._hero.setColor([0.2, 0.8, 0.2, 1]);
+    this._hero.getXform().setPosition(20, 60);
+    this._hero.getXform().setSize(2, 2);
   }
 
   draw() {
     clearCanvas([0.9, 0.9, 0.9, 1]);
     this._camera!.setViewAndCameraMatrix();
-    for (let i = 0; i < this._squares!.length; i++) {
-      this._squares![i].draw(this._camera!);
-    }
+
+    this._hero?.draw(this._camera!);
+    this._support?.draw(this._camera!);
   }
 
   update() {
-    const whiteXform = this._squares![0].getXform();
-    const deltaX = 0.05;
+    const delta = 0.05;
+    const heroXform = this._hero!.getXform();
+
     if (input.isKeyDown(Key.Right)) {
-      if (whiteXform.getPositionX() > 30) {
-        whiteXform.setPosition(10, 60);
+      heroXform.incrementPositionX(delta);
+
+      if (heroXform.getPositionX() > 30) {
+        heroXform.setPosition(12, 60);
       }
-      whiteXform.incrementPositionX(deltaX);
-      whiteXform.incrementRotationDegrees(1);
     }
+
     if (input.isKeyDown(Key.Left)) {
-      if (whiteXform.getPositionX() < 10) {
-        whiteXform.setPosition(30, 60);
+      heroXform.incrementPositionX(-delta);
+
+      if (heroXform.getPositionX() < 11) {
+        this.next();
       }
-      whiteXform.incrementPositionX(-deltaX);
-      whiteXform.incrementRotationDegrees(-1);
     }
-    const redXform = this._squares![1].getXform();
-    if (input.isKeyDown(Key.Up)) {
-      if (redXform.getWidth() > 5) {
-        redXform.setSize(2, 2);
-      }
-      redXform.incrementSize(0.05);
+
+    if (input.isKeyPressed(Key.Q) || input.isKeyPressed(Key.Escape)) {
+      this.stop();
     }
-    if (input.isKeyDown(Key.Down)) {
-      if (redXform.getWidth() < 2) {
-        redXform.setSize(5, 5);
-      }
-      redXform.incrementSize(-0.05);
-    }
-    if (input.isKeyPressed(Key.A)) {
-      this._squares![0].setColor(getRandomColor());
-    }
-    if (input.isKeyPressed(Key.S)) {
-      this._squares![1].setColor(getRandomColor());
-    }
-    if (input.isKeyPressed(Key.D)) {
-      this._camera!.setBackgroundColor(getRandomColor());
-    }
+  }
+
+  next(): void {
+    super.next();
+
+    const nextScene = new NextLevel();
+
+    nextScene.start();
   }
 
   load() {
-    xml.loadXml(this._sceneFile);
+    console.log('load');
   }
 
   unload() {
-    xml.unloadXml(this._sceneFile);
+    console.log('unload');
   }
 }
 
@@ -105,5 +101,5 @@ window.onload = () => {
   init('gummiCanvas');
   const client = new Client();
 
-  startLoop(client);
+  client.start();
 };

@@ -4,7 +4,7 @@
  */
 
 import {ShaderResourceError} from '../helpers/error';
-import {loadText} from '../renderer/resources/text';
+import {loadText, unloadText} from '../renderer/resources/text';
 import BaseShader from '../renderer/shaders/baseShader';
 import {pushRequest} from './resourceMap';
 
@@ -89,4 +89,17 @@ export function initShader(): void {
 export function getConstColorShader(): BaseShader {
   confirmShader();
   return _constColorShader;
+}
+
+/**
+ * Cleans up the shader resources by unloading the shader source files.
+ * @returns {void}
+ * @example
+ * cleanup();
+ * // shader resources are now unavailable
+ */
+export function cleanupShaders(): void {
+  _constColorShader.unload();
+  unloadText(SIMPLE_FS_PATH);
+  unloadText(SIMPLE_VS_PATH);
 }

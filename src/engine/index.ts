@@ -6,11 +6,12 @@
  */
 
 // local imports -- not to be exported from this file
-import {getGl, initWebGL} from './internal/gl';
-import {initVertexBuffer} from './internal/vertexBuffer';
-import {initShader} from './internal/shaderResources';
+import {cleanupWebGL, getGl, initWebGL} from './internal/gl';
+import {cleanupVertexBuffer, initVertexBuffer} from './internal/vertexBuffer';
+import {cleanupShaders, initShader} from './internal/shaderResources';
+import {cleanupLoop} from './internal/loop';
 import {Color} from './types';
-import {initInput} from './user/input';
+import {cleanupInput, initInput} from './user/input';
 
 // engine utils
 
@@ -45,10 +46,26 @@ function clearCanvas(color: Color) {
   gl.clear(gl.COLOR_BUFFER_BIT);
 }
 
+/**
+ * Cleans up all engine resources: WebGL context, vertex buffer, and shaders.
+ * @returns {void}
+ * @example
+ * cleanup();
+ * // Engine is now cleaned up
+ */
+function cleanup() {
+  cleanupLoop();
+  cleanupInput();
+  cleanupShaders();
+  cleanupVertexBuffer();
+  cleanupWebGL();
+}
+
 // import classes to be exported from this file
 import Renderable from './renderer/renderable';
 import Transform from './renderer/transform';
 import Camera from './renderer/camera';
+import Scene from './renderer/scene';
 
 // import modules to be exported from this file
 import * as input from './user/input';
@@ -58,12 +75,14 @@ import * as xml from './renderer/resources/xml';
 // export public API
 export {
   // functions
-  init,
+  cleanup,
   clearCanvas,
+  init,
   // classes
-  Renderable,
-  Transform,
   Camera,
+  Renderable,
+  Scene,
+  Transform,
   // modules
   input,
   text,

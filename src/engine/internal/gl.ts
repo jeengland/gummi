@@ -4,22 +4,24 @@
  */
 import {RenderError} from '../helpers/error';
 
-let _canvas: HTMLCanvasElement;
-let _gl: WebGLRenderingContext;
+let _canvas: HTMLCanvasElement | null;
+let _gl: WebGLRenderingContext | null;
 
 /**
  * Confirms that the WebGL2 context has been initialized.
  * @throws {RenderError} - If the WebGL2 context has not been initialized.
- * @returns {void}
+ * @returns {WebGL2RenderingContext} - The WebGL2 context.
  * @example
- * confirmWebGLContext();
+ * const context = confirmWebGLContext();
  * // throws error if WebGL2 context has not been initialized
- * // otherwise, WebGL2 context is confirmed to be available
+ * // otherwise, WebGL2 context is returned
  */
-function confirmWebGLContext(): void {
+function confirmWebGLContext(): WebGLRenderingContext {
   if (!_gl) {
     throw new RenderError('WebGL context not initialized');
   }
+
+  return _gl;
 }
 
 /**
@@ -32,9 +34,9 @@ function confirmWebGLContext(): void {
  * // WebGL2 context is now available
  */
 export function getGl(): WebGLRenderingContext {
-  confirmWebGLContext();
+  const context = confirmWebGLContext();
 
-  return _gl;
+  return context;
 }
 
 /**
@@ -70,4 +72,29 @@ export function initWebGL(canvasId: string): void {
   }
 
   _gl = gl;
+}
+
+/**
+ * Cleans up the WebGL2 context.
+ * @throws {RenderError} - If the WebGL2 context has not been initialized.
+ * @returns {void}
+ * @example
+ * cleanupWebGL();
+ * // WebGL2 context is now cleaned up
+ * // Canvas will be transparent gray and fixed in the top left corner
+ * // with a message indicating that Gummi has shut down
+ */
+export function cleanupWebGL(): void {
+  if (!_gl || !_canvas) {
+    throw new RenderError(
+      'Engine cleanup failed: WebGL context not initialized'
+    );
+  }
+
+  _gl = null;
+  _canvas.style.position = 'fixed';
+  _canvas.style.backgroundColor = 'rgba(200, 200, 200, 0.5)';
+  _canvas = null;
+
+  document.write('<br><h1>Gummi shutdown successful</h1></br>');
 }

@@ -203,4 +203,23 @@ export default class BaseShader {
     gl.uniformMatrix4fv(this._modelMatrixRef, false, trsMatrix);
     gl.uniformMatrix4fv(this._viewMatrixRef, false, viewMatrix);
   }
+
+  /**
+   * Unloads the shader.
+   * @returns {void}
+   * @example
+   * const shader = new BaseShader('vertexShader', 'fragmentShader');
+   * shader.unload();
+   * // shader is now unloaded
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/detachShader | MDN}
+   */
+  public unload(): void {
+    const gl = getGl();
+
+    gl.detachShader(this._compiledShader, this._vertexShader);
+    gl.detachShader(this._compiledShader, this._fragmentShader);
+    gl.deleteShader(this._vertexShader);
+    gl.deleteShader(this._fragmentShader);
+    gl.deleteProgram(this._compiledShader);
+  }
 }
