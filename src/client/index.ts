@@ -1,5 +1,6 @@
 import {vec2} from 'gl-matrix';
 import {
+  audio,
   Camera,
   clearCanvas,
   init,
@@ -18,6 +19,8 @@ import NextLevel from './scenes/nextLevel';
 // }
 
 export class Client extends Scene {
+  private _bgm: string;
+  private _cue: string;
   private _camera: Camera | null;
   private _hero: Renderable | null;
   private _support: Renderable | null;
@@ -25,6 +28,8 @@ export class Client extends Scene {
   constructor() {
     super();
 
+    this._bgm = 'src/client/assets/audio/bg_clip.mp3';
+    this._cue = 'src/client/assets/audio/my_game_cue.wav';
     this._camera = null;
     this._hero = null;
     this._support = null;
@@ -45,6 +50,8 @@ export class Client extends Scene {
     this._hero.setColor([0.2, 0.8, 0.2, 1]);
     this._hero.getXform().setPosition(20, 60);
     this._hero.getXform().setSize(2, 2);
+
+    audio.playBgm(this._bgm, 1);
   }
 
   draw() {
@@ -75,6 +82,10 @@ export class Client extends Scene {
       }
     }
 
+    if (input.isKeyPressed(Key.Right) || input.isKeyPressed(Key.Left)) {
+      audio.playCue(this._cue, 0.5);
+    }
+
     if (input.isKeyPressed(Key.Q) || input.isKeyPressed(Key.Escape)) {
       this.stop();
     }
@@ -89,11 +100,15 @@ export class Client extends Scene {
   }
 
   load() {
-    console.log('load');
+    audio.loadAudio(this._bgm);
+    audio.loadAudio(this._cue);
   }
 
   unload() {
-    console.log('unload');
+    audio.stopBgm();
+
+    audio.unloadAudio(this._bgm);
+    audio.unloadAudio(this._cue);
   }
 }
 

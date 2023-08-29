@@ -7,7 +7,7 @@
  * Error for issues with base render functionality
  * Errors of this type originate from the gl module
  * @extends {Error}
- * */
+ */
 export class RenderError extends Error {
   constructor(message: string) {
     super(message);
@@ -19,7 +19,7 @@ export class RenderError extends Error {
  * Error for issues with vertex buffer functionality
  * Errors of this type originate from the vertexBuffer module
  * @extends {Error}
- * */
+ */
 export class VertexBufferError extends Error {
   constructor(message: string) {
     super(message);
@@ -31,7 +31,7 @@ export class VertexBufferError extends Error {
  * Error for issues with shaders
  * Errors of this type originate from a shader module
  * @extends {Error}
- * */
+ */
 export class ShaderError extends Error {
   constructor(message: string) {
     super(message);
@@ -43,7 +43,7 @@ export class ShaderError extends Error {
  * Error for issues with shader resources
  * Errors of this type originate from the shaderResources module
  * @extends {Error}
- * */
+ */
 export class ShaderResourceError extends Error {
   constructor(message: string) {
     super(message);
@@ -55,7 +55,7 @@ export class ShaderResourceError extends Error {
  * Error for issues with scenes and looping
  * Errors of this type originate from the loop module
  * @extends {Error}
- * */
+ */
 export class LoopError extends Error {
   constructor(message: string) {
     super(message);
@@ -67,7 +67,7 @@ export class LoopError extends Error {
  * Error for issues with resource loading
  * Errors of this type originate from the resourceMap module
  * @extends {Error}
- * */
+ */
 export class ResourceError extends Error {
   constructor(message: string) {
     super(message);
@@ -84,5 +84,17 @@ export class SceneError extends Error {
   constructor(message: string) {
     super(message);
     this.name = 'SceneError';
+  }
+}
+
+/**
+ * Error for issues with audio loading and playback
+ * Errors of this type originate from the audio module
+ * @extends {Error}
+ */
+export class AudioError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'AudioError';
   }
 }

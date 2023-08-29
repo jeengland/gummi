@@ -27,7 +27,7 @@ const UPDATES_PER_SECOND = 60;
  * @constant
  * @type {number}
  * @private
- * */
+ */
 const MILLISECONDS_PER_UPDATE = 1000 / UPDATES_PER_SECOND;
 
 // Temporary type until scene class is implemented
@@ -44,32 +44,32 @@ const MILLISECONDS_PER_UPDATE = 1000 / UPDATES_PER_SECOND;
  * The scene to run the game loop with.
  * @type {Scene}
  * @private
- * */
+ */
 let _scene: Scene | null;
 /**
  * The id of the current frame.
  * @type {number}
  * @private
- * */
+ */
 let _frameId = -1;
 
 /**
  * Indicates if the game loop is running.
  * @type {boolean}
  * @private
- * */
+ */
 let _running = false;
 /**
  * The previous time in milliseconds.
  * @type {number}
  * @private
- * */
+ */
 let _previousTime: number;
 /**
  * The lag time in milliseconds.
  * @type {number}
  * @private
- * */
+ */
 let _lagTime: number;
 
 /**

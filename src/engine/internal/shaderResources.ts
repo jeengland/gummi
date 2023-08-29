@@ -4,7 +4,7 @@
  */
 
 import {ShaderResourceError} from '../helpers/error';
-import {loadText, unloadText} from '../renderer/resources/text';
+import {loadText, unloadText} from '../resources/text';
 import BaseShader from '../renderer/shaders/baseShader';
 import {pushRequest} from './resourceMap';
 
@@ -20,14 +20,14 @@ const SIMPLE_VS_PATH = 'src/shaders/vertex/simple_vs.glsl';
  * @private
  * @constant {string}
  * @default
- * */
+ */
 const SIMPLE_FS_PATH = 'src/shaders/fragment/simple_fs.glsl';
 
 /**
  * The constant color shader.
  * @private
  * @type {BaseShader}
- * */
+ */
 let _constColorShader: BaseShader;
 
 /**

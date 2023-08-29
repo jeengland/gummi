@@ -12,6 +12,7 @@ import {cleanupShaders, initShader} from './internal/shaderResources';
 import {cleanupLoop} from './internal/loop';
 import {Color} from './types';
 import {cleanupInput, initInput} from './user/input';
+import {cleanupAudio, initAudio} from './resources/audio';
 
 // engine utils
 
@@ -28,6 +29,7 @@ function init(htmlId: string) {
   initVertexBuffer();
   initShader();
   initInput();
+  initAudio();
 }
 
 /**
@@ -55,6 +57,7 @@ function clearCanvas(color: Color) {
  */
 function cleanup() {
   cleanupLoop();
+  cleanupAudio();
   cleanupInput();
   cleanupShaders();
   cleanupVertexBuffer();
@@ -69,8 +72,9 @@ import Scene from './renderer/scene';
 
 // import modules to be exported from this file
 import * as input from './user/input';
-import * as text from './renderer/resources/text';
-import * as xml from './renderer/resources/xml';
+import * as text from './resources/text';
+import * as xml from './resources/xml';
+import * as audio from './resources/audio';
 
 // export public API
 export {
@@ -84,6 +88,7 @@ export {
   Scene,
   Transform,
   // modules
+  audio,
   input,
   text,
   xml,

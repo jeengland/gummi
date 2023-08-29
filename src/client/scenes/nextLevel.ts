@@ -1,9 +1,19 @@
 import {Client} from '..';
-import {Camera, clearCanvas, input, Renderable, Scene, xml} from '../../engine';
+import {
+  audio,
+  Camera,
+  clearCanvas,
+  input,
+  Renderable,
+  Scene,
+  xml,
+} from '../../engine';
 import {Key} from '../../engine/types';
 import SceneFileParser from '../util/sceneParser';
 
 export default class NextLevel extends Scene {
+  private _bgm: string;
+  private _cue: string;
   private _camera: Camera | null;
   private _squares: Renderable[] | null;
   private _sceneFile: string;
@@ -11,6 +21,8 @@ export default class NextLevel extends Scene {
   constructor() {
     super();
 
+    this._bgm = 'src/client/assets/audio/bg_clip.mp3';
+    this._cue = 'src/client/assets/audio/next_level_cue.wav';
     this._camera = null;
     this._squares = null;
     this._sceneFile = 'src/client/assets/scene.xml';
@@ -27,6 +39,8 @@ export default class NextLevel extends Scene {
 
     this._camera = parser.parseCamera();
     this._squares = parser.parseRenderables();
+
+    audio.playBgm(this._bgm, 0.5);
   }
 
   update(): void {
@@ -47,6 +61,10 @@ export default class NextLevel extends Scene {
       }
       whiteXform.incrementPositionX(-deltaX);
       whiteXform.incrementRotationDegrees(-1);
+    }
+
+    if (input.isKeyPressed(Key.Right) || input.isKeyPressed(Key.Left)) {
+      audio.playCue(this._cue, 0.5);
     }
 
     if (input.isKeyPressed(Key.Q) || input.isKeyPressed(Key.Escape)) {
@@ -71,9 +89,17 @@ export default class NextLevel extends Scene {
 
   load() {
     xml.loadXml(this._sceneFile);
+
+    audio.loadAudio(this._bgm);
+    audio.loadAudio(this._cue);
   }
 
   unload() {
     xml.unloadXml(this._sceneFile);
+
+    audio.stopBgm();
+
+    audio.unloadAudio(this._bgm);
+    audio.unloadAudio(this._cue);
   }
 }

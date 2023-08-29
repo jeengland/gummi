@@ -8,7 +8,7 @@ import {
   hasResource,
   loadDecodeParse,
   unloadResource,
-} from '../../internal/resourceMap';
+} from '../internal/resourceMap';
 
 /**
  * Parser for xml resources, instantiated once to avoid memory issues.

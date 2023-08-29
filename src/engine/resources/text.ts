@@ -7,7 +7,7 @@ import {
   hasResource,
   loadDecodeParse,
   unloadResource,
-} from '../../internal/resourceMap';
+} from '../internal/resourceMap';
 
 /**
  * Gets the text resource at the given path.

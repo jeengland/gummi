@@ -9,7 +9,7 @@ import {ShaderError} from '../../helpers/error';
 
 import {Color} from '../../types';
 import {mat4} from 'gl-matrix';
-import {getText} from '../resources/text';
+import {getText} from '../../resources/text';
 
 /**
  * Loads and compiles a shader from an html script element.
