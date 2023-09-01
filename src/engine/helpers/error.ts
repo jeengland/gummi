@@ -98,3 +98,15 @@ export class AudioError extends Error {
     this.name = 'AudioError';
   }
 }
+
+/**
+ * Error for issues with texture loading
+ * Errors of this type originate from the texture resource module
+ * @extends {Error}
+ */
+export class TextureError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'TextureError';
+  }
+}

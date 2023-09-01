@@ -4,7 +4,7 @@
  */
 
 import {vec2} from 'gl-matrix';
-import {Camera, Renderable} from '../../engine';
+import {Camera, Renderable, TextureRenderable} from '../../engine';
 import {ColorChannel, Viewport} from '../../engine/types';
 
 /**
@@ -47,6 +47,14 @@ export default class SceneFileParser {
    */
   constructor(xml: Document) {
     this._xml = xml;
+  }
+
+  _getElements(tag: string): Element[] {
+    const elements = this._xml.getElementsByTagName(tag);
+    if (elements.length === 0) {
+      throw new Error(`No ${tag} elements found`);
+    }
+    return Array.from(elements);
   }
 
   /**
@@ -122,7 +130,7 @@ export default class SceneFileParser {
    * // renderables is now the renderables from the scene file
    */
   parseRenderables(): Renderable[] {
-    const renderableEls = getElements(this._xml, 'Square');
+    const renderableEls = this._getElements('Square');
 
     return renderableEls.map(renderableEl => {
       const x = Number(renderableEl.getAttribute('PosX'));
@@ -158,6 +166,54 @@ export default class SceneFileParser {
 
       // create the renderable
       const renderable = new Renderable();
+      renderable.setColor([r, g, b, a]);
+      renderable.getXform().setPosition(x, y);
+      renderable.getXform().setRotationDegrees(ro);
+      renderable.getXform().setSize(w, h);
+
+      return renderable;
+    });
+  }
+
+  parseTextureRenderables(): Renderable[] {
+    const textureRenderableEls = this._getElements('TextureSquare');
+
+    return textureRenderableEls.map(textureRenderableEl => {
+      const x = Number(textureRenderableEl.getAttribute('PosX'));
+      const y = Number(textureRenderableEl.getAttribute('PosY'));
+      const w = Number(textureRenderableEl.getAttribute('Width'));
+      const h = Number(textureRenderableEl.getAttribute('Height'));
+      const ro = Number(textureRenderableEl.getAttribute('Rotation'));
+      const texture = textureRenderableEl.getAttribute('Texture');
+      const color = textureRenderableEl.getAttribute('Color')?.split(' ');
+
+      // check if attributes are not undefined
+      // do not just check if they are truthy
+      // because 0 is a valid value for some attributes
+      if (
+        x === undefined ||
+        y === undefined ||
+        w === undefined ||
+        h === undefined ||
+        ro === undefined ||
+        !texture ||
+        !color
+      ) {
+        throw new Error('Texture element is missing attributes');
+      }
+
+      // extract the color attributes and convert to numbers
+      const r = Number(color[ColorChannel.Red]);
+      const g = Number(color[ColorChannel.Green]);
+      const b = Number(color[ColorChannel.Blue]);
+      const a = Number(color[ColorChannel.Alpha]);
+      // if any of the color attributes are NaN, throw an error
+      if (isNaN(r) || isNaN(g) || isNaN(b) || isNaN(a)) {
+        throw new Error('Texture element has invalid color attributes');
+      }
+
+      // create the texture renderable
+      const renderable = new TextureRenderable(texture);
       renderable.setColor([r, g, b, a]);
       renderable.getXform().setPosition(x, y);
       renderable.getXform().setRotationDegrees(ro);

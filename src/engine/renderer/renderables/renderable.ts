@@ -1,13 +1,13 @@
 /**
- * Module to handle the drawing process.
- * @module renderable
+ * Base renderable class.
+ * @module renderables
  */
-import {getGl} from '../internal/gl';
-import {getConstColorShader} from '../internal/shaderResources';
-import {Color} from '../types';
-import BaseShader from './shaders/baseShader';
-import Transform from './transform';
-import Camera from './camera';
+import {getGl} from '../../internal/gl';
+import {getConstColorShader} from '../../internal/shaderResources';
+import {Color} from '../../types';
+import BaseShader from '../shaders/baseShader';
+import Transform from '../transform';
+import Camera from '../camera';
 
 /**
  * A renderable object.
@@ -86,5 +86,9 @@ export default class Renderable {
    */
   getXform(): Transform {
     return this._xform;
+  }
+
+  _setShader(shader: BaseShader): void {
+    this._shader = shader;
   }
 }

@@ -7,6 +7,8 @@ import {
   input,
   Renderable,
   Scene,
+  texture,
+  TextureRenderable,
 } from '../engine/index';
 import {Key} from '../engine/types';
 import NextLevel from './scenes/nextLevel';
@@ -18,18 +20,24 @@ import NextLevel from './scenes/nextLevel';
 //   return [r, g, b, 1];
 // }
 
+// constants
+const PORTAL_SRC = 'src/client/assets/images/minion_portal.png';
+const COLLECTOR_SRC = 'src/client/assets/images/minion_collector.png';
+const BGM_SRC = 'src/client/assets/audio/bg_clip.mp3';
+const CUE_SRC = 'src/client/assets/audio/my_game_cue.wav';
+
 export class Client extends Scene {
-  private _bgm: string;
-  private _cue: string;
   private _camera: Camera | null;
   private _hero: Renderable | null;
   private _support: Renderable | null;
+  private _portal: TextureRenderable | null;
+  private _collector: TextureRenderable | null;
 
   constructor() {
     super();
 
-    this._bgm = 'src/client/assets/audio/bg_clip.mp3';
-    this._cue = 'src/client/assets/audio/my_game_cue.wav';
+    this._portal = null;
+    this._collector = null;
     this._camera = null;
     this._hero = null;
     this._support = null;
@@ -49,9 +57,19 @@ export class Client extends Scene {
     this._hero = new Renderable();
     this._hero.setColor([0.2, 0.8, 0.2, 1]);
     this._hero.getXform().setPosition(20, 60);
-    this._hero.getXform().setSize(2, 2);
+    this._hero.getXform().setSize(2, 3);
 
-    audio.playBgm(this._bgm, 1);
+    this._portal = new TextureRenderable(PORTAL_SRC);
+    this._portal.setColor([1, 0, 0, 0.2]);
+    this._portal.getXform().setPosition(25, 60);
+    this._portal.getXform().setSize(3, 3);
+
+    this._collector = new TextureRenderable(COLLECTOR_SRC);
+    this._collector.setColor([0, 0, 0, 0]);
+    this._collector.getXform().setPosition(15, 60);
+    this._collector.getXform().setSize(3, 3);
+
+    audio.playBgm(BGM_SRC, 1);
   }
 
   draw() {
@@ -60,6 +78,8 @@ export class Client extends Scene {
 
     this._hero?.draw(this._camera!);
     this._support?.draw(this._camera!);
+    this._portal?.draw(this._camera!);
+    this._collector?.draw(this._camera!);
   }
 
   update() {
@@ -83,7 +103,7 @@ export class Client extends Scene {
     }
 
     if (input.isKeyPressed(Key.Right) || input.isKeyPressed(Key.Left)) {
-      audio.playCue(this._cue, 0.5);
+      audio.playCue(CUE_SRC, 0.5);
     }
 
     if (input.isKeyPressed(Key.Q) || input.isKeyPressed(Key.Escape)) {
@@ -100,15 +120,21 @@ export class Client extends Scene {
   }
 
   load() {
-    audio.loadAudio(this._bgm);
-    audio.loadAudio(this._cue);
+    audio.loadAudio(BGM_SRC);
+    audio.loadAudio(CUE_SRC);
+
+    texture.loadTexture(PORTAL_SRC);
+    texture.loadTexture(COLLECTOR_SRC);
   }
 
   unload() {
     audio.stopBgm();
 
-    audio.unloadAudio(this._bgm);
-    audio.unloadAudio(this._cue);
+    audio.unloadAudio(BGM_SRC);
+    audio.unloadAudio(CUE_SRC);
+
+    texture.unloadTexture(PORTAL_SRC);
+    texture.unloadTexture(COLLECTOR_SRC);
   }
 }
 
