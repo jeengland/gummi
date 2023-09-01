@@ -3,6 +3,7 @@
  * @module renderables
  */
 import {getTextureShader} from '../../internal/shaderResources';
+import {activateTexture} from '../../resources/texture';
 import Camera from '../camera';
 import Renderable from './renderable';
 
@@ -13,8 +14,7 @@ import Renderable from './renderable';
  * @extends Renderable
  */
 export default class TextureRenderable extends Renderable {
-  private _texture: WebGLTexture;
-
+  private _texturePath: string;
   /**
    * Creates a texture renderable object.
    * @constructor
@@ -23,12 +23,12 @@ export default class TextureRenderable extends Renderable {
    * const textureRenderable = new TextureRenderable(texture);
    * // textureRenderable object is now available
    */
-  constructor(texture: WebGLTexture) {
+  constructor(texture: string) {
     super();
 
     super.setColor([1, 1, 1, 0]);
     super._setShader(getTextureShader());
-    this._texture = texture;
+    this._texturePath = texture;
   }
 
   /**
@@ -40,10 +40,7 @@ export default class TextureRenderable extends Renderable {
    * // textureRenderable is now drawn using the current shader and texture
    */
   draw(camera: Camera) {
-    console.log(
-      "If you're reading this you need to uncomment the texture shader code in src/engine/renderer/renderables/textureRenderable.ts"
-    );
-    // activateTexture(this._texture);
+    activateTexture(this._texturePath);
     super.draw(camera);
   }
 
@@ -54,8 +51,8 @@ export default class TextureRenderable extends Renderable {
    * const texture = textureRenderable.getTexture();
    * // texture is now available
    */
-  getTexture(): WebGLTexture {
-    return this._texture;
+  getTexturePath(): string {
+    return this._texturePath;
   }
 
   /**
@@ -66,7 +63,7 @@ export default class TextureRenderable extends Renderable {
    * textureRenderable.setTexture(texture);
    * // textureRenderable now uses the new texture
    */
-  setTexture(texture: WebGLTexture): void {
-    this._texture = texture;
+  setTexturePath(texture: string): void {
+    this._texturePath = texture;
   }
 }

@@ -7,6 +7,7 @@ import {ShaderError} from '../../helpers/error';
 import {getGl} from '../../internal/gl';
 import {Color} from '../../types';
 import BaseShader from './baseShader';
+import {getTextureCoordinates} from '../../internal/vertexBuffer';
 
 /**
  * Shader that renders textures onto renderables.
@@ -67,7 +68,7 @@ export default class TextureShader extends BaseShader {
 
     const gl = getGl();
 
-    gl.bindBuffer(gl.ARRAY_BUFFER, this._textureCoordBufferRef);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this._getTextureCoordBufferRef());
     gl.vertexAttribPointer(
       this._textureCoordBufferRef,
       2,
@@ -78,5 +79,9 @@ export default class TextureShader extends BaseShader {
     );
     gl.enableVertexAttribArray(this._textureCoordBufferRef);
     gl.uniform1i(this._samplerRef, 0);
+  }
+
+  private _getTextureCoordBufferRef(): WebGLBuffer {
+    return getTextureCoordinates();
   }
 }

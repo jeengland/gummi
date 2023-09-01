@@ -65,16 +65,18 @@ function cleanup() {
 }
 
 // import classes to be exported from this file
-import Renderable from './renderer/renderables/renderable';
-import Transform from './renderer/transform';
 import Camera from './renderer/camera';
+import Renderable from './renderer/renderables/renderable';
 import Scene from './renderer/scene';
+import TextureRenderable from './renderer/renderables/textureRenderable';
+import Transform from './renderer/transform';
 
 // import modules to be exported from this file
+import * as audio from './resources/audio';
 import * as input from './user/input';
 import * as text from './resources/text';
+import * as texture from './resources/texture';
 import * as xml from './resources/xml';
-import * as audio from './resources/audio';
 
 // export public API
 export {
@@ -86,10 +88,12 @@ export {
   Camera,
   Renderable,
   Scene,
+  TextureRenderable,
   Transform,
   // modules
   audio,
   input,
   text,
+  texture,
   xml,
 };

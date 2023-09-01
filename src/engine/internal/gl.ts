@@ -64,7 +64,7 @@ export function initWebGL(canvasId: string): void {
 
   _canvas = canvas;
 
-  const gl = canvas.getContext('webgl', {alpha: false});
+  const gl = _canvas.getContext('webgl2', {alpha: false});
 
   if (!gl) {
     document.write('<br><b>WebGL is not supported.</b></br>');

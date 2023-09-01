@@ -6,30 +6,32 @@ import {
   input,
   Renderable,
   Scene,
+  texture,
   xml,
 } from '../../engine';
 import {Key} from '../../engine/types';
 import SceneFileParser from '../util/sceneParser';
 
+// constants
+const BGM_SRC = 'src/client/assets/audio/bg_clip.mp3';
+const CUE_SRC = 'src/client/assets/audio/next_level_cue.wav';
+const PORTAL_SRC = 'src/client/assets/images/minion_portal.jpg';
+const COLLECTOR_SRC = 'src/client/assets/images/minion_collector.jpg';
+const SCENE_SRC = 'src/client/assets/scene.xml';
+
 export default class NextLevel extends Scene {
-  private _bgm: string;
-  private _cue: string;
   private _camera: Camera | null;
   private _squares: Renderable[] | null;
-  private _sceneFile: string;
 
   constructor() {
     super();
 
-    this._bgm = 'src/client/assets/audio/bg_clip.mp3';
-    this._cue = 'src/client/assets/audio/next_level_cue.wav';
     this._camera = null;
-    this._squares = null;
-    this._sceneFile = 'src/client/assets/scene.xml';
+    this._squares = [];
   }
 
   init() {
-    const xmlFile = xml.getXml(this._sceneFile);
+    const xmlFile = xml.getXml(SCENE_SRC);
 
     if (!xmlFile) {
       throw new Error('Could not load scene file');
@@ -38,13 +40,14 @@ export default class NextLevel extends Scene {
     const parser = new SceneFileParser(xmlFile);
 
     this._camera = parser.parseCamera();
-    this._squares = parser.parseRenderables();
+    this._squares!.push(...parser.parseRenderables());
+    this._squares!.push(...parser.parseTextureRenderables());
 
-    audio.playBgm(this._bgm, 0.5);
+    audio.playBgm(BGM_SRC, 0.5);
   }
 
   update(): void {
-    const whiteXform = this._squares![1].getXform();
+    const whiteXform = this._squares![0].getXform();
     const deltaX = 0.05;
 
     if (input.isKeyDown(Key.Right)) {
@@ -64,12 +67,21 @@ export default class NextLevel extends Scene {
     }
 
     if (input.isKeyPressed(Key.Right) || input.isKeyPressed(Key.Left)) {
-      audio.playCue(this._cue, 0.5);
+      audio.playCue(CUE_SRC, 0.5);
     }
 
     if (input.isKeyPressed(Key.Q) || input.isKeyPressed(Key.Escape)) {
       this.stop();
     }
+
+    const color = this._squares![0].getColor();
+    let augmentedColor = color[3] + deltaX;
+
+    if (augmentedColor > 1) {
+      augmentedColor = 0;
+    }
+
+    color[3] = augmentedColor;
   }
 
   next(): void {
@@ -88,18 +100,24 @@ export default class NextLevel extends Scene {
   }
 
   load() {
-    xml.loadXml(this._sceneFile);
+    xml.loadXml(SCENE_SRC);
 
-    audio.loadAudio(this._bgm);
-    audio.loadAudio(this._cue);
+    audio.loadAudio(BGM_SRC);
+    audio.loadAudio(CUE_SRC);
+
+    texture.loadTexture(PORTAL_SRC);
+    texture.loadTexture(COLLECTOR_SRC);
   }
 
   unload() {
-    xml.unloadXml(this._sceneFile);
+    xml.unloadXml(SCENE_SRC);
 
     audio.stopBgm();
 
-    audio.unloadAudio(this._bgm);
-    audio.unloadAudio(this._cue);
+    audio.unloadAudio(BGM_SRC);
+    audio.unloadAudio(CUE_SRC);
+
+    texture.unloadTexture(PORTAL_SRC);
+    texture.unloadTexture(COLLECTOR_SRC);
   }
 }
