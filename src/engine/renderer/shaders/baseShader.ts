@@ -77,7 +77,7 @@ function _compileShader(path: string, shaderType: number): WebGLShader {
  * // shader is now active
  */
 export default class BaseShader {
-  private _compiledShader: WebGLProgram;
+  public _compiledShader: WebGLProgram;
   private _vertexPositionRef: number;
   private _vertexShader: WebGLShader;
   private _fragmentShader: WebGLShader;
@@ -100,12 +100,12 @@ export default class BaseShader {
    * @param {string} vPath - The path to the vertex shader.
    * @param {string} fPath - The path to the fragment shader.
    */
-  public constructor(vId: string, fId: string) {
+  public constructor(vPath: string, fPath: string) {
     // load shaders from html
     const gl = getGl();
 
-    this._vertexShader = _compileShader(vId, gl.VERTEX_SHADER);
-    this._fragmentShader = _compileShader(fId, gl.FRAGMENT_SHADER);
+    this._vertexShader = _compileShader(vPath, gl.VERTEX_SHADER);
+    this._fragmentShader = _compileShader(fPath, gl.FRAGMENT_SHADER);
 
     // Create program and attach shaders
     const program = gl.createProgram();

@@ -65,7 +65,7 @@ function cleanup() {
 }
 
 // import classes to be exported from this file
-import Renderable from './renderer/renderable';
+import Renderable from './renderer/renderables/renderable';
 import Transform from './renderer/transform';
 import Camera from './renderer/camera';
 import Scene from './renderer/scene';
