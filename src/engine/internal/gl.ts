@@ -64,7 +64,7 @@ export function initWebGL(canvasId: string): void {
 
   _canvas = canvas;
 
-  const gl = canvas.getContext('webgl');
+  const gl = canvas.getContext('webgl', {alpha: false});
 
   if (!gl) {
     document.write('<br><b>WebGL is not supported.</b></br>');
@@ -72,6 +72,11 @@ export function initWebGL(canvasId: string): void {
   }
 
   _gl = gl;
+
+  _gl.blendFunc(_gl.SRC_ALPHA, _gl.ONE_MINUS_SRC_ALPHA);
+  _gl.enable(_gl.BLEND);
+
+  _gl.pixelStorei(_gl.UNPACK_FLIP_Y_WEBGL, true);
 }
 
 /**
